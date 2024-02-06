@@ -88,7 +88,7 @@ const Login: React.FC<LoginProps> = () => {
                               view: "signup",
                         }))
                         }  
-                              > SIGN UP!!</Text>
+                              > Sign Up</Text>
                   </Flex>     
         </form>
       );

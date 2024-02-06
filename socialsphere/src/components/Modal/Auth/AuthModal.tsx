@@ -38,7 +38,7 @@ const AuthModal: React.FC = () => {
               
                                     
                                     <OAuthButtons />
-                                    <Text color="gray.500" fontWeight={700}>OR</Text>
+                                    <Text color="gray.500" fontWeight={600}>OR</Text>
                                     <AuthInputs />
                                     {/* <ResetPassword/> */}
               </ModalBody>
