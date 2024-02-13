@@ -17,7 +17,7 @@ import {
   Flex,
   Icon,
 } from "@chakra-ui/react";
-import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
+import { doc, getDoc, runTransaction, serverTimestamp, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { BsFillEyeFill, BsFillPersonFill } from "react-icons/bs";
@@ -63,24 +63,36 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
       return;
     }
     setLoading(true);
-
     try {
       //create the community document in firestore
-      //check if the community exists in the database
+
       const communityDocRef = doc(firestore, "communities", communityName);
-      const communityDoc = await getDoc(communityDocRef);
 
-      if (communityDoc.exists()) {
-        throw new Error(`Sorry, s/${communityName} is taken. Try another`);
-      }
+      await runTransaction(firestore, async (transaction) => {
+        //check if the community exists in the database
+        const communityDoc = await transaction.get(communityDocRef);
 
-      //create a community
-      await setDoc(communityDocRef, {
-        createrID: user?.uid,
-        createdAt: serverTimestamp(),
-        numberOfMembers: 1,
-        privacyType: communityType,
+        if (communityDoc.exists()) {
+          throw new Error(`Sorry, s/${communityName} is taken. Try another`);
+        }
+
+        //create a community
+        transaction.set(communityDocRef, {
+          createrID: user?.uid,
+          createdAt: serverTimestamp(),
+          numberOfMembers: 1,
+          privacyType: communityType,
+        });
+
+        //cteate the communitySnippet on the user
+        transaction.set(doc(firestore, `users/${user?.uid}/communitySnippets`, communityName),
+          {
+            communityId: communityName,
+            isModerator: true,
+          }
+        );
       });
+
     } catch (error: any) {
       console.log("handleCreateCommunity error", error);
       setError(error.message);
