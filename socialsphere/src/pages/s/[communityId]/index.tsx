@@ -7,6 +7,8 @@ import React from "react";
 import NotFound from "../../../components/Community/NotFound";
 import Header from "../../../components/Community/Header";
 import PageContent from "../../../components/Layout/PageContent";
+import CreatePostLink from "../../../components/Community/CreatePostLink";
+import Posts from "../../../components/Posts/Posts";
 
 type CommunityPageProps = {
   communityData: Community;
@@ -18,12 +20,17 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
   if (!communityData) {
     return <NotFound />;
   }
+
+  // Log the community ID here
+  console.log("Community ID in CommunityPage:", communityData.id);
+
   return (
     <>
       <Header communityData={communityData} />
       <PageContent>
         <>
-          <div>LHS</div>
+          <CreatePostLink />
+          <Posts communityData={communityData} />
         </>
         <>
           <div>RHS</div>
@@ -54,7 +61,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   } catch (error) {
     // Could add a error page here.
-    console.log("getServerSideProps error", error);
+        console.log("getServerSideProps error", error);
+        
+        
   }
 }
 export default CommunityPage;
