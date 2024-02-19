@@ -78,7 +78,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
 
         //create a community
         transaction.set(communityDocRef, {
-          createrID: user?.uid,
+          creatorId: user?.uid,
           createdAt: serverTimestamp(),
           numberOfMembers: 1,
           privacyType: communityType,
@@ -146,7 +146,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                 size="sm"
                 pl="22px"
                 color="gray.700"
-                borderColor="green.500"
+                borderColor="blue.500"
                 onChange={handleChange}
               />
 
@@ -169,7 +169,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                 {/* checkbox */}
                 <Stack spacing={2} mt={3}>
                   <Checkbox
-                    colorScheme="green"
+                    colorScheme="blue"
                     name="public"
                     isChecked={communityType === "public"}
                     onChange={onCommunityTypeChange}
@@ -186,7 +186,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                   </Checkbox>
 
                   <Checkbox
-                    colorScheme="green"
+                    colorScheme="blue"
                     name="restricted"
                     isChecked={communityType === "restricted"}
                     onChange={onCommunityTypeChange}
@@ -204,7 +204,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                   </Checkbox>
 
                   <Checkbox
-                    colorScheme="green"
+                    colorScheme="blue"
                     name="private"
                     isChecked={communityType === "private"}
                     onChange={onCommunityTypeChange}

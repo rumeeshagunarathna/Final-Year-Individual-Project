@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
   return (
     <Flex bg="white" height="50px" padding="6px 12px" justify={{ md: "space-between" }}>
       <Flex align="center" width={{base: "40px", md: "auto"}} mr={{ base: 0, md: 2}}>
-        <Image src="/images/Logo2.png" height="50px" />
+        <Image src="/images/logo3.png" height="60px" />
         <Image
           src="/images/Logo name.png"
           height="46px"

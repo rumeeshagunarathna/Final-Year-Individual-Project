@@ -22,15 +22,15 @@ export const Button: ComponentStyleConfig = {
   variants: {
     solid: {
       color: "white",
-      bg: "green.500",
+      bg: "blue.500",
       _hover: {
-        bg: "green.400",
+        bg: "blue.400",
       },
     },
     outline: {
-      color: "green.500",
+      color: "blue.500",
       border: "1px solid",
-      borderColor: "green.500",
+      borderColor: "blue.500",
     },
     oauth: {
       height: "34px",

@@ -65,8 +65,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
                     {user?.displayName || user.email?.split("@")[0]}
                   </Text>
                   <Flex>
-                     <Icon as={IoSparkles} color="brand.100" mr={1} />  
-                      <Text color="gray.400">1 karma</Text>                                  
+                    <Icon as={IoSparkles} color="brand.100" mr={1} />
+                    <Text color="gray.400">Anonymous</Text>
                   </Flex>
                 </Flex>
               </>
@@ -83,7 +83,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
             <MenuItem
               fontSize="10pt"
               fontWeight={700}
-              _hover={{ bg: "green.500", color: "white" }}
+              _hover={{ bg: "blue.500", color: "white" }}
             >
               <Flex align="center">
                 <Icon fontSize={20} mr={2} as={CgProfile} /> Profile
@@ -93,7 +93,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
             <MenuItem
               fontSize="10pt"
               fontWeight={700}
-              _hover={{ bg: "green.500", color: "white" }}
+              _hover={{ bg: "blue.500", color: "white" }}
               onClick={logout}
             >
               <Flex align="center">
@@ -106,7 +106,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
             <MenuItem
               fontSize="10pt"
               fontWeight={700}
-              _hover={{ bg: "green.500", color: "white" }}
+              _hover={{ bg: "blue.500", color: "white" }}
               onClick={() => setAuthModalState({ open: true, view: "login" })}
             >
               <Flex align="center">

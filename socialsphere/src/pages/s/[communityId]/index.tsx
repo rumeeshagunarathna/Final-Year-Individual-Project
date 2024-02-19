@@ -1,14 +1,16 @@
 import { firestore } from "../../../firebase/clientApp";
-import { Community } from "../../../atoms/communitiesAtom";
+import { Community, communityState } from "../../../atoms/communitiesAtom";
 import { doc, getDoc } from "firebase/firestore";
 import { GetServerSidePropsContext } from "next";
 import safeJsonStringify from "safe-json-stringify";
-import React from "react";
+import React, { useEffect } from "react";
 import NotFound from "../../../components/Community/NotFound";
 import Header from "../../../components/Community/Header";
 import PageContent from "../../../components/Layout/PageContent";
 import CreatePostLink from "../../../components/Community/CreatePostLink";
 import Posts from "../../../components/Posts/Posts";
+import { useSetRecoilState } from "recoil";
+import About from "../../../components/Community/About";
 
 type CommunityPageProps = {
   communityData: Community;
@@ -17,9 +19,20 @@ type CommunityPageProps = {
 const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
   console.log("Here is the Data", communityData);
 
+  const setCommunityStateValue = useSetRecoilState(communityState);
+
   if (!communityData) {
+    console.log("Community data is not available.");
     return <NotFound />;
   }
+
+  useEffect(() => {
+     console.log("Community data received:", communityData);
+    setCommunityStateValue((prev) => ({
+      ...prev,
+      currentCommunity: communityData,
+    }));
+  }, []);
 
   // Log the community ID here
   console.log("Community ID in CommunityPage:", communityData.id);
@@ -33,7 +46,9 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
           <Posts communityData={communityData} />
         </>
         <>
-          <div>RHS</div>
+          {/* Log the community data in the About component */}
+          {console.log("Community Data in About:", communityData)}
+          <About communityData={communityData} />
         </>
       </PageContent>
     </>
@@ -62,7 +77,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   } catch (error) {
     // Could add a error page here.
         console.log("getServerSideProps error", error);
-        
+    return {
+      props: {
+        error: "An error occurred while fetching community data.",
+      },
+    };
         
   }
 }
