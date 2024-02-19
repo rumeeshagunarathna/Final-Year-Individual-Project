@@ -1,4 +1,4 @@
-import { Flex, Box } from "@chakra-ui/react";
+import { Flex, Box, Stack } from "@chakra-ui/react";
 import { Post, postState } from "../../../atoms/postsAtom";
 import { User } from "firebase/auth";
 
@@ -14,17 +14,13 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../../../firebase/clientApp";
 import { useSetRecoilState } from "recoil";
-import { Comment } from './CummentItem';
-
-
+import  CommentItem, { Comment } from "./CommentItem";
 
 type CommentsProps = {
   user: User;
   selectedPost: Post | null;
   communityId: string;
 };
-
-
 
 const Comments: React.FC<CommentsProps> = ({
   user,
@@ -34,28 +30,35 @@ const Comments: React.FC<CommentsProps> = ({
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState<Comment[]>([]);
   const [fetchLoading, setFetchLoading] = useState(false);
-      const [createLoading, setCreateLoading] = useState(false);
-      const setPostState = useSetRecoilState(postState);
+  const [createLoading, setCreateLoading] = useState(false);
+  const setPostState = useSetRecoilState(postState);
 
   const onCreateComment = async () => {
-        setCreateLoading(true);
+    setCreateLoading(true);
 
-    try {
-      const batch = writeBatch(firestore);
-      //create a comment document
-      const commentDocRef = doc(collection(firestore, "comments"));
+        try {
+              const batch = writeBatch(firestore);
+              //create a comment document
+              const commentDocRef = doc(collection(firestore, "comments"));
 
-      const newComment: Comment = {
-        id: commentDocRef.id,
-        creatorId: user.uid,
-        creatorDisplayText: user.email!.split("@")[0],
-        communityId,
-        postId: selectedPost?.id!,
-        postTitle: selectedPost?.title!,
-        text: commentText,
-        createdAt: serverTimestamp() as Timestamp,
-      };
-      batch.set(commentDocRef, newComment);
+              const newComment: Comment = {
+                    id: commentDocRef.id,
+                    creatorId: user.uid,
+                    creatorDisplayText: user.email!.split("@")[0],
+                    communityId,
+                    postId: selectedPost?.id!,
+                    postTitle: selectedPost?.title!,
+                    text: commentText,
+                    createdAt: serverTimestamp() as Timestamp,
+              };
+              batch.set(commentDocRef, newComment);
+          
+              newComment.createdAt = { seconds: Date.now() / 1000 } as Timestamp
+        
+        
+
+
+
 
       // update post numberOfComments +1
       const postDocRef = doc(firestore, "posts", selectedPost?.id!);
@@ -64,23 +67,21 @@ const Comments: React.FC<CommentsProps> = ({
       });
       await batch.commit();
 
-          //update client recoil state
-          setCommentText("");
-          setComments((prev) => [newComment, ...prev]);
-          setPostState(prev => ({
-                ...prev,
-                selectedPost: {
-                      ...prev.selectedPost,
-                      numberOfComments: prev.selectedPost?.numberOfComments! + 1
-                } as Post
-          }))
-
-
+      //update client recoil state
+      setCommentText("");
+      setComments((prev) => [newComment, ...prev]);
+      setPostState((prev) => ({
+        ...prev,
+        selectedPost: {
+          ...prev.selectedPost,
+          numberOfComments: prev.selectedPost?.numberOfComments! + 1,
+        } as Post,
+      }));
     } catch (error) {
       console.log("onCreateComment", error);
     }
 
-        setCreateLoading(false);
+    setCreateLoading(false);
   };
 
   const onDeleteComment = async (comment: any) => {
@@ -113,6 +114,16 @@ const Comments: React.FC<CommentsProps> = ({
           onCreateComment={onCreateComment}
         />
       </Flex>
+      <Stack spacing={6}>
+        {comments.map(comment => (
+          <CommentItem
+            comment={comment}
+            onDeleteComment={onDeleteComment}
+            loadingDelete={false}
+            userId={user.uid}
+          />
+        ))}
+      </Stack>
     </Box>
   );
 };

@@ -40,7 +40,7 @@ const CommentInput: React.FC<CommentInputProps> = ({
                 _placeholder={{ color: "gray.500" }}
                 _focus={{
                   outline: "none",
-                  // bg: "white",
+                   bg: "white",
                   border: "1px solid black",
                 }}
               />
