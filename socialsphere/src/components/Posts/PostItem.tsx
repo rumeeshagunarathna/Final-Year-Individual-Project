@@ -178,7 +178,12 @@ const PostItem: React.FC<PostItemProps> = ({
             {/* Home page Check */}
 
             <Text>
-              Posted by user/{post.creatorDisplayName}{" "}
+              Posted by
+              <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+              <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+              user/{post.creatorDisplayName}{" "}
+              <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+              
               {moment(new Date(post.createdAt?.seconds * 1000)).fromNow()}
             </Text>
           </Stack>

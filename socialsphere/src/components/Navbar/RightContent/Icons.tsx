@@ -18,7 +18,7 @@ const Icons: React.FC = () => {
         borderRight="1px solid"
         borderColor="gray.200"
       >
-        <Flex
+        {/* <Flex
           mr={1.5}
           ml={1.5}
           padding={1}
@@ -27,9 +27,9 @@ const Icons: React.FC = () => {
           _hover={{ bg: "gray.200" }}
         >
           <Icon as={BsArrowUpRightCircle} fontSize={20} />
-        </Flex>
+        </Flex> */}
 
-        <Flex
+        {/* <Flex
           mr={1.5}
           ml={1.5}
           padding={1}
@@ -38,9 +38,9 @@ const Icons: React.FC = () => {
           _hover={{ bg: "gray.200" }}
         >
           <Icon as={IoFilterCircleOutline} fontSize={22} />
-        </Flex>
+        </Flex> */}
 
-        <Flex
+        {/* <Flex
           mr={1.5}
           ml={1.5}
           padding={1}
@@ -49,6 +49,17 @@ const Icons: React.FC = () => {
           _hover={{ bg: "gray.200" }}
         >
           <Icon as={IoVideocamOutline} fontSize={22} />
+        </Flex> */}
+        <Flex
+          display={{ base: "none", md: "flex" }}
+          mr={1.5}
+          ml={1.5}
+          padding={1}
+          cursor="pointer"
+          borderRadius={4}
+          _hover={{ bg: "gray.200" }}
+        >
+          <Icon as={GrAdd} fontSize={20} />
         </Flex>
       </Flex>
 
@@ -75,8 +86,8 @@ const Icons: React.FC = () => {
           <Icon as={IoNotificationsOutline} fontSize={20} />
         </Flex>
 
-                    <Flex
-                          display={{ base: "none", md: "flex"}}
+        {/* <Flex
+          display={{ base: "none", md: "flex" }}
           mr={1.5}
           ml={1.5}
           padding={1}
@@ -85,9 +96,7 @@ const Icons: React.FC = () => {
           _hover={{ bg: "gray.200" }}
         >
           <Icon as={GrAdd} fontSize={20} />
-        </Flex>
-
-      
+        </Flex> */}
       </>
     </Flex>
   );

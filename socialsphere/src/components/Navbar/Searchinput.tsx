@@ -14,7 +14,7 @@ const Searchinput: React.FC<SearchinputProps> = ({ user}) => {
         <InputLeftElement pointerEvents="none">
           <SearchIcon color="gray.400" mb={1} />
         </InputLeftElement>
-        <SearchIcon color="gray.400" mb={1} />
+        
 
         <Input
           placeholder="Search Here"

@@ -89,7 +89,8 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
         });
 
         //cteate the communitySnippet on the user
-        transaction.set(doc(firestore, `users/${user?.uid}/communitySnippets`, communityName),
+        transaction.set(
+          doc(firestore, `users/${user?.uid}/communitySnippets`, communityName),
           {
             communityId: communityName,
             isModerator: true,
@@ -100,6 +101,9 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
       handleClose();
       toggleMenuOpen();
       router.push(`s/${communityName}`);
+
+      
+
 
     } catch (error: any) {
       console.log("handleCreateCommunity error", error);

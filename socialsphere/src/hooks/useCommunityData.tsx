@@ -83,7 +83,7 @@ const useCommunityData = () => {
         newSnippet
       );
       batch.update(doc(firestore, "communities", communityData.id), {
-        numberOffMembers: increment(1),
+        numberOfMembers: increment(1),
       });
       await batch.commit();
 

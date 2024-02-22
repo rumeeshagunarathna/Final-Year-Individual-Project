@@ -26,6 +26,7 @@ const TextInputs: React.FC<TextInputsProps> = ({
         value={textInputs.title}
         onChange={onChange}
         fontSize="10pt"
+        height='50px'
         borderRadius={4}
         placeholder="Title"
         _placeholder={{ color: "gray.500" }}
@@ -35,15 +36,16 @@ const TextInputs: React.FC<TextInputsProps> = ({
           border: "1px solid",
           borderColor: "black",
         }}
+        
       />
       <Textarea
         name="body"
         value={textInputs.body}
         onChange={onChange}
         fontSize="10pt"
-        height="100px"
+        height="300px"
         borderRadius={4}
-        placeholder="Type here"
+        placeholder="Type here..."
         _placeholder={{ color: "gray.500" }}
         _focus={{
           outline: "none",
@@ -51,6 +53,7 @@ const TextInputs: React.FC<TextInputsProps> = ({
           border: "1px solid",
           borderColor: "black",
         }}
+       
       />
       <Flex justify="flex-end">
         <Button

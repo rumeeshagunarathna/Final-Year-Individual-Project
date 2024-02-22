@@ -26,11 +26,13 @@ import useCommunityData from "../hooks/useCommunityData";
 import Recommendations from "../components/Community/Recommendations";
 import Premium from "../components/Community/Premium";
 import PersonalHome from "../components/Community/PersonalHome";
+import { useRouter } from "next/router";
 //import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Home: NextPage = () => {
+  const router = useRouter();
   const [user, loadingUser] = useAuthState(auth);
   const [loading, setLoading] = useState(false);
   const {

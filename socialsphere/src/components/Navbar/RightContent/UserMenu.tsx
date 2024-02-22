@@ -21,20 +21,27 @@ import { auth } from "../../../firebase/clientApp";
 import { useResetRecoilState, useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtoms";
 import { communityState } from "@/atoms/communitiesAtom";
+import { useRouter } from "next/router";
+
 
 type UserMenuProps = {
   user?: User | null;
 };
 
 const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
+  const router = useRouter(); // Initialize the useRouter hook
   //const resetCommunityState = useResetRecoilState(communityState);
   const setAuthModalState = useSetRecoilState(authModalState);
+
+  const goToProfilePage = () => {
+    router.push("/profile"); // Navigate to the profile page
+  };
 
   const logout = async () => {
     await signOut(auth);
     //resetCommunityState();
     //clear the community state
-}
+  };
 
   return (
     <Menu>
@@ -84,9 +91,16 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
               fontSize="10pt"
               fontWeight={700}
               _hover={{ bg: "blue.500", color: "white" }}
+              onClick={goToProfilePage}
             >
               <Flex align="center">
-                <Icon fontSize={20} mr={2} as={CgProfile} /> Profile
+                <Icon
+                  fontSize={20}
+                  mr={2}
+                  as={CgProfile}
+                  onClick={goToProfilePage}
+                />{" "}
+                Profile
               </Flex>
             </MenuItem>
             <MenuDivider />
