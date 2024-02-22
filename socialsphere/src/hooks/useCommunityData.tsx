@@ -51,6 +51,7 @@ const useCommunityData = () => {
       setCommunityStateValue((prev) => ({
         ...prev,
         mySnippets: snippets as CommunitySnippet[],
+        snippetsFetched: true,
       }));
 
       console.log("Here are the snippets", snippets);
@@ -71,7 +72,7 @@ const useCommunityData = () => {
       const newSnippet: CommunitySnippet = {
         communityId: communityData.id,
         imageURL: communityData.imageURL || "",
-         //isModerator: false,
+         isModerator: user?.uid === communityData.creatorId,
       };
       batch.set(
         doc(
@@ -153,11 +154,13 @@ const useCommunityData = () => {
       setCommunityStateValue((prev) => ({
         ...prev,
         mySnippets: [],
+        snippetsFetched: false,
       }));
       return;
     };
     getMySnippets();
   }, [user]);
+
 
   useEffect(() => {
     const { communityId } = router.query;

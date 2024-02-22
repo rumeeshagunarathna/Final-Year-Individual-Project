@@ -45,18 +45,18 @@ const CummentItem: React.FC<CummentItemProps> = ({
           >
             {comment.creatorDisplayText}
           </Text>
-          
-            <Text color="gray.600">
-              {moment(new Date(comment.createdAt.seconds * 1000)).fromNow()}
-            </Text>
-          
+
+          <Text color="gray.600">
+            {moment(new Date(comment.createdAt.seconds * 1000)).fromNow()}
+          </Text>
+          {loadingDelete && <Spinner size="sm" />}
         </Stack>
-        {/* <Text fontSize="10pt">{comment.text}</Text>
+        <Text fontSize="10pt">{comment.text}</Text>
         <Stack
           direction="row"
           align="center"
           cursor="pointer"
-          fontWeight={600}
+          //fontWeight={600}
           color="gray.500"
         >
           <Icon as={IoArrowUpCircleOutline} />
@@ -75,7 +75,7 @@ const CummentItem: React.FC<CummentItemProps> = ({
               </Text>
             </>
           )}
-        </Stack> */}
+        </Stack>
       </Stack>
     </Flex>
   );

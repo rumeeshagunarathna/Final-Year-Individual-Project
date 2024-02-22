@@ -21,10 +21,7 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
 
   const setCommunityStateValue = useSetRecoilState(communityState);
 
-  if (!communityData) {
-    console.log("Community data is not available.");
-    return <NotFound />;
-  }
+  
 
   useEffect(() => {
      console.log("Community data received:", communityData);
@@ -32,8 +29,13 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
       ...prev,
       currentCommunity: communityData,
     }));
-  }, []);
+  }, [communityData]);
+  
 
+  if (!communityData) {
+    console.log("Community data is not available.");
+    return <NotFound />;
+  }
   // Log the community ID here
   console.log("Community ID in CommunityPage:", communityData.id);
 

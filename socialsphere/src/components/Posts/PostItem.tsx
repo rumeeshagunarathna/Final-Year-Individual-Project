@@ -11,9 +11,20 @@ import {
   IoBookmarkOutline,
 } from "react-icons/io5";
 import React, { useEffect, useState } from "react";
-import { Alert, AlertIcon, Flex, Icon, Image, Skeleton, Spinner, Stack, Text } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertIcon,
+  Flex,
+  Icon,
+  Image,
+  Skeleton,
+  Spinner,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import moment from "moment";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 type PostItemProps = {
   post: Post;
@@ -27,6 +38,7 @@ type PostItemProps = {
   ) => void;
   onDeletePost: (post: Post) => Promise<boolean>;
   onSelectPost?: (post: Post) => void;
+  homePage?: boolean;
 };
 
 const PostItem: React.FC<PostItemProps> = ({
@@ -36,15 +48,14 @@ const PostItem: React.FC<PostItemProps> = ({
   onVote,
   onDeletePost,
   onSelectPost,
+  homePage,
 }) => {
-  
-
   const [loadingImage, setLoadingImage] = useState(true);
   const [loadingDelete, setLoadingDelete] = useState(false);
 
   const router = useRouter();
 
-  const singlePostPage = !onSelectPost
+  const singlePostPage = !onSelectPost;
 
   const [error, setError] = useState(false);
 
@@ -65,8 +76,6 @@ const PostItem: React.FC<PostItemProps> = ({
       if (singlePostPage) {
         router.push(`/s/${post.communityId}`);
       }
-
-
     } catch (error: any) {
       setError(error.message);
     }
@@ -138,6 +147,34 @@ const PostItem: React.FC<PostItemProps> = ({
         )}
         <Stack spacing={1} p="10px">
           <Stack direction="row" spacing={0.6} align="center" fontSize="9pt">
+            {/* Home page Check */}
+            {homePage && (
+              <>
+                {post.communityImageURL ? (
+                  <Image
+                    src={post.communityImageURL}
+                    borderRadius="full"
+                    boxSize="18px"
+                    mr={2}
+                  />
+                ) : (
+                  <Icon
+                    as={FaReddit}
+                    fontSize="18pt"
+                    mr={1}
+                    color="green.300"
+                  />
+                )}
+                <Link href={`s/${post.communityId}`}>
+                  <Text
+                    fontWeight={700}
+                    _hover={{ textDecoration: "underline" }}
+                    onClick={(event) => event.stopPropagation()}
+                  >{`s/${post.communityId}`}</Text>
+                </Link>
+                <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+              </>
+            )}
             {/* Home page Check */}
 
             <Text>
