@@ -2,6 +2,8 @@ import { Post } from "../../atoms/postsAtom";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsChat, BsDot } from "react-icons/bs";
 import { FaReddit } from "react-icons/fa";
+import { IoIosStarHalf } from "react-icons/io";
+
 import {
   IoArrowDownCircleOutline,
   IoArrowDownCircleSharp,
@@ -159,7 +161,7 @@ const PostItem: React.FC<PostItemProps> = ({
                   />
                 ) : (
                   <Icon
-                    as={FaReddit}
+                    as={IoIosStarHalf}
                     fontSize="18pt"
                     mr={1}
                     color="green.300"
@@ -183,7 +185,6 @@ const PostItem: React.FC<PostItemProps> = ({
               <Icon as={BsDot} color={"gray.500"} fontSize={8} />
               user/{post.creatorDisplayName}{" "}
               <Icon as={BsDot} color={"gray.500"} fontSize={8} />
-              
               {moment(new Date(post.createdAt?.seconds * 1000)).fromNow()}
             </Text>
           </Stack>

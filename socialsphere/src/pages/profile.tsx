@@ -6,6 +6,6 @@ import React from 'react';
 
 const profile:React.FC = () => {
       
-      return <div>Have a good coding</div>
+      return <div>Profile page</div>
 }
 export default profile;

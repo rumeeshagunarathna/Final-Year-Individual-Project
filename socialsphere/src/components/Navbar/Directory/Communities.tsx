@@ -6,6 +6,7 @@ import { useRecoilValue } from "recoil";
 import { communityState } from "../../../atoms/communitiesAtom";
 import MenuListItem from "./MenuListItem";
 import { FaReddit } from "react-icons/fa";
+import { IoIosStarHalf } from "react-icons/io";
 
 type CommunitiesProps = {};
 
@@ -18,20 +19,21 @@ const Communities: React.FC<CommunitiesProps> = () => {
       <CreateCommunityModal open={open} handleClose={() => setOpen(false)} />
       <Box mt={3} mb={4}>
         <Text pl={3} mb={1} fontSize="7pt" fontWeight={500} color="gray.500">
-         MODERATING
+          MODERATING
         </Text>
 
-        
-        {mySnippets.filter(snippet => snippet.isModerator).map((snippet) => (
-          <MenuListItem
-            key={snippet.communityId}
-            icon={FaReddit}
-            displayText={`s/${snippet.communityId}`}
-            link={`/s/${snippet.communityId}`}
-            iconColor="yellow.500"
-            imageURL={snippet.imageURL}
-          />
-        ))}
+        {mySnippets
+          .filter((snippet) => snippet.isModerator)
+          .map((snippet) => (
+            <MenuListItem
+              key={snippet.communityId}
+              icon={IoIosStarHalf}
+              displayText={`s/${snippet.communityId}`}
+              link={`/s/${snippet.communityId}`}
+              iconColor="yellow.500"
+              imageURL={snippet.imageURL}
+            />
+          ))}
       </Box>
       <Box mt={3} mb={4}>
         <Text pl={3} mb={1} fontSize="7pt" fontWeight={500} color="gray.500">
@@ -52,7 +54,7 @@ const Communities: React.FC<CommunitiesProps> = () => {
         {mySnippets.map((snippet) => (
           <MenuListItem
             key={snippet.communityId}
-            icon={FaReddit}
+            icon={IoIosStarHalf}
             displayText={`s/${snippet.communityId}`}
             link={`/s/${snippet.communityId}`}
             iconColor="yellow.500"

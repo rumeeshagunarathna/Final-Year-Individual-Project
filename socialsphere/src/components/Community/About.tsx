@@ -21,7 +21,8 @@ import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, firestore, storage } from "../../firebase/clientApp";
 import useSelectFile from "../../hooks/useSelectFile";
-import { FaReddit } from "react-icons/fa";
+
+import { IoIosStarHalf } from "react-icons/io";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -88,7 +89,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
   }, [communityData.numberOfMembers]);
 
   return (
-    <Box position="sticky" top="14px" >
+    <Box position="sticky" top="14px">
       <Flex
         justify="space-between"
         align="center"
@@ -132,13 +133,20 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
               </Text>
             )}
           </Flex>
-          
-            <Link href={`/s/${router.query.community}/submit`}>
-              <Button mt={3} height="35px" width="90%" ml={4} mb={3} fontSize='15px'>
-                Create Post
-              </Button>
-            </Link>
-         
+
+          <Link href={`/s/${router.query.community}/submit`}>
+            <Button
+              mt={3}
+              height="35px"
+              width="90%"
+              ml={4}
+              mb={3}
+              fontSize="15px"
+            >
+              Create Post
+            </Button>
+          </Link>
+
           {user?.uid === communityData?.creatorId && (
             <>
               <Divider />
@@ -162,9 +170,9 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                     />
                   ) : (
                     <Icon
-                      as={FaReddit}
+                      as={IoIosStarHalf}
                       fontSize={40}
-                      color="brand.100"
+                      color="yellow.300"
                       mr={2}
                     />
                   )}

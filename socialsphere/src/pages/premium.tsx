@@ -4,6 +4,6 @@ import React from 'react';
 
 const premium:React.FC = () => {
       
-      return <div>Have a good coding</div>
+      return <div>Premium page</div>
 }
 export default premium;

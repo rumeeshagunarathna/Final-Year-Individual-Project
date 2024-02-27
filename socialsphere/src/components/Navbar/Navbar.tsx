@@ -1,4 +1,4 @@
-import { Flex, Image } from "@chakra-ui/react";
+import { Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import SearchInput from "./Searchinput";
 import RightContent from "./RightContent/RightContent";
@@ -27,15 +27,33 @@ const Navbar: React.FC = () => {
         align="center"
         width={{ base: "40px", md: "auto" }}
         mr={{ base: 0, md: 2 }}
-        cursor='pointer'
+        cursor="pointer"
         onClick={() => onSelectMenuItem(defaultMenuItem)}
       >
-        <Image src="/images/logo3.png" height="60px" />
-        <Image
+        <Image src="/images/logo3.png" height="50px" />
+        {/* <Image
           src="/images/Logo name.png"
           height="46px"
           display={{ base: "none", md: "unset" }}
-        />
+        /> */}
+        <Text
+          as="i"
+          fontSize="35px"
+          height="46px"
+          color="blue.400"
+          display={{ base: "none", md: "unset" }}
+        >
+          Social
+        </Text>
+        <Text
+          as="i"
+          fontSize="35px"
+          height="46px"
+          color="yellow.500"
+          display={{ base: "none", md: "unset" }}
+        >
+          Sphere
+        </Text>
       </Flex>
       {user && <Directory />}
       <SearchInput user={user} />

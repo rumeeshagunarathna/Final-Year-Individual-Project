@@ -7,6 +7,8 @@ import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { communityState } from "../atoms/communitiesAtom";
 import { FaReddit } from "react-icons/fa";
+import { IoIosStarHalf } from "react-icons/io";
+
 
 const useDirectory = () => {
   const [directoryState, setDirectoryState] =
@@ -44,7 +46,7 @@ const useDirectory = () => {
           displayText: `s/${currentCommunity.id}`,
           link: `/s/${currentCommunity.id}`,
           imageURL: currentCommunity.imageURL,
-          icon: FaReddit,
+          icon: IoIosStarHalf,
           iconColor: "yellow.500",
         },
       }));

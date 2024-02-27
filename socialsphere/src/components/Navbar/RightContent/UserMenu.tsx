@@ -17,6 +17,7 @@ import { VscAccount } from "react-icons/vsc";
 import { IoSparkles } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineLogin } from "react-icons/md";
+import { IoIosStarHalf } from "react-icons/io";
 import { auth } from "../../../firebase/clientApp";
 import { useResetRecoilState, useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtoms";
@@ -59,7 +60,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
                   fontSize={24}
                   mr={1}
                   color={"gray.300"}
-                  as={FaRedditSquare}
+                  as={IoIosStarHalf}
                 />
                 <Flex
                   direction="column"
@@ -72,7 +73,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
                     {user?.displayName || user.email?.split("@")[0]}
                   </Text>
                   <Flex>
-                    <Icon as={IoSparkles} color="brand.100" mr={1} />
+                    <Icon as={IoIosStarHalf} color="brand.100" mr={1} />
                     <Text color="gray.400">Anonymous</Text>
                   </Flex>
                 </Flex>

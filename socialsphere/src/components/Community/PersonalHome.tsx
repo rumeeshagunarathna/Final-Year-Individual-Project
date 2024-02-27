@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Flex, Icon, Stack, Text } from "@chakra-ui/react";
-import { FaReddit } from "react-icons/fa";
+
+import { IoIosStarHalf } from "react-icons/io";
 import { useRouter } from "next/router";
 import CreateCommunityModal from "../Modal/CreateCommunity/CreateCommunityModal";
 import NewPostForm from "../Posts/NewPostForm";
@@ -20,7 +21,7 @@ const PersonalHome: React.FC = () => {
   return (
     <>
       <CreateCommunityModal open={open} handleClose={() => setOpen(false)} />
-      
+
       <Flex
         direction="column"
         bg="white"
@@ -43,7 +44,7 @@ const PersonalHome: React.FC = () => {
         ></Flex>
         <Flex direction="column" p="12px">
           <Flex align="center" mb={2}>
-            <Icon as={FaReddit} fontSize={50} color="brand.100" mr={2} />
+            <Icon as={IoIosStarHalf} fontSize={40} color="yellow.400" mr={2} />
             <Text fontWeight={600}>Home</Text>
           </Flex>
           <Stack spacing={3}>

@@ -2,6 +2,8 @@ import { Timestamp } from "firebase/firestore";
 import React from "react";
 import moment from "moment";
 import { FaReddit } from "react-icons/fa";
+import { IoIosStarHalf } from "react-icons/io";
+
 import {
   IoArrowDownCircleOutline,
   IoArrowUpCircleOutline,
@@ -35,7 +37,7 @@ const CummentItem: React.FC<CummentItemProps> = ({
   return (
     <Flex>
       <Box mr={2}>
-        <Icon as={FaReddit} fontSize={30} color="gray.300" />
+        <Icon as={IoIosStarHalf} fontSize={30} color="gray.300" />
       </Box>
       <Stack spacing={1}>
         <Stack direction="row" align="center" fontSize="8pt">

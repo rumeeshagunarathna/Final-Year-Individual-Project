@@ -13,6 +13,7 @@ import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaReddit } from "react-icons/fa";
+import { IoIosStarHalf } from "react-icons/io";
 import { Community } from "../../atoms/communitiesAtom";
 import { firestore } from "../../firebase/clientApp";
 import useCommunityData from "../../hooks/useCommunityData";
@@ -73,7 +74,9 @@ const Recommendations: React.FC= () => {
         bgGradient="linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)),
         url('images/recCommsArt.png')"
       >
+        <Icon as={IoIosStarHalf} fontSize={30} color="yellow.400" mr={2} />
         Top Communities
+        <Icon as={IoIosStarHalf} fontSize={30} color="yellow.400" mr={2} />
       </Flex>
       <Flex direction="column">
         {loading ? (
@@ -100,7 +103,6 @@ const Recommendations: React.FC= () => {
               return (
                 <Link key={item.id} href={`/s/${item.id}`}>
                   <Flex
-                    
                     position="relative"
                     align="center"
                     fontSize="10pt"
@@ -124,7 +126,7 @@ const Recommendations: React.FC= () => {
                           />
                         ) : (
                           <Icon
-                            as={FaReddit}
+                            as={IoIosStarHalf}
                             fontSize={30}
                             color="green.300"
                             mr={2}
