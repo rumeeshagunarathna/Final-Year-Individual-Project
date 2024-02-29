@@ -1,6 +1,6 @@
 import { Post } from "../../atoms/postsAtom";
 import { AiOutlineDelete } from "react-icons/ai";
-import { BsChat, BsDot } from "react-icons/bs";
+import { BsChat, BsDot, BsFlag } from "react-icons/bs";
 import { FaReddit } from "react-icons/fa";
 import { IoIosStarHalf } from "react-icons/io";
 
@@ -27,6 +27,7 @@ import {
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { RiFlag2Line } from "react-icons/ri";
 
 type PostItemProps = {
   post: Post;
@@ -82,6 +83,10 @@ const PostItem: React.FC<PostItemProps> = ({
       setError(error.message);
     }
     setLoadingDelete(false);
+  };
+
+  const goToReportPage = () => {
+    router.push("/report"); // Navigate to the report page
   };
 
   return (
@@ -265,6 +270,18 @@ const PostItem: React.FC<PostItemProps> = ({
               )}
             </Flex>
           )}
+
+          {/* icon 5 */}
+          <Flex
+            align="center"
+            p="8px 10px"
+            borderRadius={4}
+            _hover={{ bg: "gray.200" }}
+            cursor="pointer"
+          >
+            <Icon as={RiFlag2Line} mr={2} onClick={goToReportPage} />
+            <Text fontSize="9pt" onClick={goToReportPage}>report</Text>
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

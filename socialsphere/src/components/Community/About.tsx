@@ -95,7 +95,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
         align="center"
         p={3}
         color="white"
-        bg="blue.400"
+        bg="yellow.500"
         borderRadius="4px 4px 0px 0px"
       >
         <Text fontSize="10pt" fontWeight={700}>
@@ -136,6 +136,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
 
           <Link href={`/s/${router.query.community}/submit`}>
             <Button
+              variant="outline"
               mt={3}
               height="35px"
               width="90%"
@@ -198,6 +199,45 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
           )}
         </Stack>
       </Flex>
+      <Divider/>
+      <Box>
+        <Flex
+          justify="space-between"
+          align="center"
+          p={3}
+          color="white"
+          bg="green.500"
+          borderRadius="4px 4px 0px 0px"
+        >
+          {/* <Divider/> */}
+          <Text fontSize="10pt" fontWeight={700}>
+            Community Rules
+          </Text>
+          <Icon as={HiOutlineDotsHorizontal} cursor="pointer" />
+        </Flex>
+        <Flex
+          direction="column"
+          p={3}
+          bg="white"
+          borderRadius="0px 0px 4px 4px"
+        >
+          <Stack mt={2}>
+            <Link href={`/rules`}>
+              <Button
+                variant="outline"
+                mt={3}
+                height="35px"
+                width="90%"
+                ml={4}
+                mb={3}
+                fontSize="15px"
+              >
+                View Rules
+              </Button>
+            </Link>
+          </Stack>
+        </Flex>
+      </Box>
     </Box>
   );
 };

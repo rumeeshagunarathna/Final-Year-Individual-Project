@@ -9,6 +9,7 @@ import {
   Flex,
   MenuDivider,
   Text,
+  Link,
 } from "@chakra-ui/react";
 import { User, signOut } from "firebase/auth";
 import React from "react";
@@ -23,6 +24,9 @@ import { useResetRecoilState, useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtoms";
 import { communityState } from "@/atoms/communitiesAtom";
 import { useRouter } from "next/router";
+import { IoMdSettings } from "react-icons/io";
+import { FcAdvertising } from "react-icons/fc";
+import { GiCheckedShield } from "react-icons/gi";
 
 
 type UserMenuProps = {
@@ -37,6 +41,16 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
   const goToProfilePage = () => {
     router.push("/profile"); // Navigate to the profile page
   };
+  const goToSettingsPage = () => {
+    router.push("/settings"); 
+  };
+const goToPremiumPage = () => {
+  router.push("/premium"); 
+};
+  const goToAdvertisePage = () => {
+    router.push("/advertise");
+  };
+
 
   const logout = async () => {
     await signOut(auth);
@@ -91,6 +105,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
             <MenuItem
               fontSize="10pt"
               fontWeight={700}
+              mb={4}
               _hover={{ bg: "blue.500", color: "white" }}
               onClick={goToProfilePage}
             >
@@ -98,6 +113,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
                 <Icon
                   fontSize={20}
                   mr={2}
+                  color="yellow.500"
                   as={CgProfile}
                   onClick={goToProfilePage}
                 />{" "}
@@ -108,6 +124,66 @@ const UserMenu: React.FC<UserMenuProps> = ({ user }) => {
             <MenuItem
               fontSize="10pt"
               fontWeight={700}
+              mb={4}
+              _hover={{ bg: "blue.500", color: "white" }}
+              onClick={goToSettingsPage}
+            >
+              <Flex align="center">
+                <Icon
+                  fontSize={20}
+                  mr={2}
+                  color="green.500"
+                  as={IoMdSettings}
+                  onClick={goToSettingsPage}
+                />{" "}
+                Settings
+              </Flex>
+            </MenuItem>
+            <MenuDivider />
+            <MenuItem
+              fontSize="10pt"
+              fontWeight={700}
+              mb={4}
+              _hover={{ bg: "blue.500", color: "white" }}
+              onClick={goToAdvertisePage}
+            >
+              <Flex align="center">
+                <Icon
+                  fontSize={20}
+                  mr={2}
+                  as={FcAdvertising}
+                  onClick={goToAdvertisePage}
+                />{" "}
+                Advertise
+              </Flex>
+            </MenuItem>
+            <MenuDivider />
+
+            <MenuItem
+              fontSize="10pt"
+              fontWeight={700}
+              mb={4}
+              _hover={{ bg: "blue.500", color: "white" }}
+              onClick={goToPremiumPage}
+            >
+              <Flex align="center">
+                <Icon
+                  fontSize={20}
+                  mr={2}
+                  as={GiCheckedShield}
+                  color="green.500"
+                  onClick={goToPremiumPage}
+                />{" "}
+                Premium
+              </Flex>
+            </MenuItem>
+
+            <MenuDivider />
+            <MenuItem
+              fontSize="10pt"
+              fontWeight={700}
+              mb={4}
+              color="red.500"
               _hover={{ bg: "blue.500", color: "white" }}
               onClick={logout}
             >

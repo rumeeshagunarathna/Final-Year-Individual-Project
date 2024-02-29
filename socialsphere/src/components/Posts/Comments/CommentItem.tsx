@@ -1,7 +1,7 @@
 import { Timestamp } from "firebase/firestore";
 import React from "react";
 import moment from "moment";
-import { FaReddit } from "react-icons/fa";
+
 import { IoIosStarHalf } from "react-icons/io";
 
 import {
@@ -9,6 +9,8 @@ import {
   IoArrowUpCircleOutline,
 } from "react-icons/io5";
 import { Box, Flex, Icon, Spinner, Stack, Text } from "@chakra-ui/react";
+import { RiFlag2Line } from "react-icons/ri";
+import router from "next/router";
 
 export type Comment = {
   id: string;
@@ -34,6 +36,12 @@ const CummentItem: React.FC<CummentItemProps> = ({
   loadingDelete,
   userId,
 }) => {
+
+
+  const goToReportPage = () => {
+    router.push("/report"); // Navigate to the profile page
+  };
+  
   return (
     <Flex>
       <Box mr={2}>
@@ -63,10 +71,25 @@ const CummentItem: React.FC<CummentItemProps> = ({
         >
           <Icon as={IoArrowUpCircleOutline} />
           <Icon as={IoArrowDownCircleOutline} />
+
+          {/* icon 5 */}
+          <Flex
+            align="center"
+            p="8px 10px"
+            borderRadius={4}
+            _hover={{ bg: "gray.200" }}
+            cursor="pointer"
+          >
+            <Icon as={RiFlag2Line} mr={2} onClick={goToReportPage} />
+            <Text fontSize="9pt" onClick={goToReportPage}>
+              report
+            </Text>
+          </Flex>
+
           {userId === comment.creatorId && (
             <>
               <Text fontSize="9pt" _hover={{ color: "blue.500" }}>
-                Edit
+                Reply
               </Text>
               <Text
                 fontSize="9pt"
