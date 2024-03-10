@@ -64,7 +64,19 @@ const goToPremiumPage = () => {
         cursor="pointer"
         padding="0px 6px"
         borderRadius={4}
-        _hover={{ outline: "1px solid", outlineColor: "gray.200" }}
+        _hover={{
+          bg: "white",
+          border: "1px solid",
+          borderColor: "white",
+        }}
+        _focus={{
+          outline: "white",
+          border: "0.5px solid",
+          borderColor: "gray.500",
+        }}
+        _placeholder={{ color: "gray.500" }}
+        height="50px"
+        bg="gray.50"
       >
         <Flex align="center">
           <Flex align="center">
@@ -73,7 +85,7 @@ const goToPremiumPage = () => {
                 <Icon
                   fontSize={24}
                   mr={1}
-                  color={"gray.300"}
+                  color={"black"}
                   as={IoIosStarHalf}
                 />
                 <Flex
@@ -83,17 +95,17 @@ const goToPremiumPage = () => {
                   align="flex-start"
                   mr={8}
                 >
-                  <Text fontWeight={700}>
+                  <Text fontWeight={700} color="black" fontSize={15}>
                     {user?.displayName || user.email?.split("@")[0]}
                   </Text>
                   <Flex>
                     <Icon as={IoIosStarHalf} color="brand.100" mr={1} />
-                    <Text color="gray.400">Anonymous</Text>
+                    <Text color="black">Anonymous</Text>
                   </Flex>
                 </Flex>
               </>
             ) : (
-              <Icon fontSize={24} color="gray.400" mr={1} as={VscAccount} />
+              <Icon fontSize={24} color="black" mr={1} as={VscAccount} />
             )}
           </Flex>
           <ChevronDownIcon />

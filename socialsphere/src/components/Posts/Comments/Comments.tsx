@@ -41,8 +41,8 @@ const Comments: React.FC<CommentsProps> = ({
   const [commentText, setCommentText] = useState("");
   const [comments, setComments] = useState<Comment[]>([]);
   const [fetchLoading, setFetchLoading] = useState(true);
-      const [createLoading, setCreateLoading] = useState(false);
-      const [loadingDeleteId, setLoadingDeleteId] = useState('');
+  const [createLoading, setCreateLoading] = useState(false);
+  const [loadingDeleteId, setLoadingDeleteId] = useState("");
   const setPostState = useSetRecoilState(postState);
 
   const onCreateComment = async () => {
@@ -92,34 +92,33 @@ const Comments: React.FC<CommentsProps> = ({
   };
 
   const onDeleteComment = async (comment: Comment) => {
-        setLoadingDeleteId(comment.id);
-        try {
-              const batch = writeBatch(firestore);
-              //delete a comment document
-              const commentDocRef = doc(firestore, 'comments', comment.id);
-              batch.delete(commentDocRef);
+    setLoadingDeleteId(comment.id);
+    try {
+      const batch = writeBatch(firestore);
+      //delete a comment document
+      const commentDocRef = doc(firestore, "comments", comment.id);
+      batch.delete(commentDocRef);
 
-              // update post numberOfComments -1
-              const postDocRef = doc(firestore, 'posts', selectedPost?.id!);
-              batch.update(postDocRef, {
-                    numberOfComments: increment(-1)
-              });
-              await batch.commit();
+      // update post numberOfComments -1
+      const postDocRef = doc(firestore, "posts", selectedPost?.id!);
+      batch.update(postDocRef, {
+        numberOfComments: increment(-1),
+      });
+      await batch.commit();
 
-              //update client recoil state
-              setPostState(prev => ({
-                    ...prev,
-                    selectedPost: {
-                          ...prev.selectedPost,
-                          numberOfComments: prev.selectedPost?.numberOfComments! -1
-                    } as Post
-              }))
-              setComments((prev) => prev.filter((item) => item.id !== comment.id));
-
-        } catch (error) {
-              console.log('onDeleteComments error', error);
-        }
-        setLoadingDeleteId('');
+      //update client recoil state
+      setPostState((prev) => ({
+        ...prev,
+        selectedPost: {
+          ...prev.selectedPost,
+          numberOfComments: prev.selectedPost?.numberOfComments! - 1,
+        } as Post,
+      }));
+      setComments((prev) => prev.filter((item) => item.id !== comment.id));
+    } catch (error) {
+      console.log("onDeleteComments error", error);
+    }
+    setLoadingDeleteId("");
   };
 
   const getPostComments = async () => {

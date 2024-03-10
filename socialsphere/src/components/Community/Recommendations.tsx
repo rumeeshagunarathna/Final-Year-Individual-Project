@@ -31,7 +31,7 @@ const Recommendations: React.FC= () => {
       const communityQuery = query(
         collection(firestore, "communities"),
         orderBy("numberOfMembers", "desc"),
-        limit(5)
+        limit(50)
       );
       const communityDocs = await getDocs(communityQuery);
           const communities = communityDocs.docs.map((doc) => ({

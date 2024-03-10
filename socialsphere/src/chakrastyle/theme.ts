@@ -16,7 +16,7 @@ fonts: {
 styles: {
       global: () => ({
             body: {
-                bg: "gray.200",
+                bg: "white",
           },
     }),  
       },  

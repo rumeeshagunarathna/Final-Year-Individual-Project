@@ -29,6 +29,12 @@ import PersonalHome from "../components/Community/PersonalHome";
 import { useRouter } from "next/router";
 //import styles from "@/styles/Home.module.css";
 
+
+// import { Box } from "@chakra-ui/react";
+// import Chatroom from "./chatroom"; // Import ChatRoom.tsx from the same directory
+// import startSocketServer from "./api/socket";
+// import { app } from "../firebase/clientApp"; 
+
 const inter = Inter({ subsets: ["latin"] });
 
 const Home: NextPage = () => {
@@ -139,6 +145,11 @@ const Home: NextPage = () => {
 
   }, [user, postStateValue.posts]);
 
+
+  // useEffect(() => {
+  //   startSocketServer();
+  // }, []);
+
   return (
     <>
       <Head>
@@ -177,9 +188,11 @@ const Home: NextPage = () => {
             <Recommendations />
             <Premium />
             <PersonalHome />
+            {/* <Chatroom /> */}
           </Stack>
         </>
       </PageContent>
+      
     </>
   );
 };

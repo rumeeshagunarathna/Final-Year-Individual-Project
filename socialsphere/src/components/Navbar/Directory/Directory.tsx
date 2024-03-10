@@ -23,8 +23,21 @@ const UserMenu: React.FC = () => {
         padding="0px 6px"
         borderRadius={4}
         mr={2}
+        mt={5}
         ml={{ base: 0, md: 2 }}
-        _hover={{ outline: "1px solid", outlineColor: "gray.200" }}
+        _hover={{
+          bg: "white",
+          border: "1px solid",
+          borderColor: "white",
+        }}
+        _focus={{
+          outline: "white",
+          border: "0.5px solid",
+          borderColor: "gray.500",
+        }}
+        _placeholder={{ color: "gray.500" }}
+        height='50px'
+        bg="gray.50"
         onClick={toggleMenuOpen}
       >
         <Flex
@@ -37,12 +50,12 @@ const UserMenu: React.FC = () => {
               <Image
                 src={directoryState.selectedMenuItem.imageURL}
                 borderRadius="full"
-                boxSize="24px"
+                boxSize="35px"
                 mr={2}
               />
             ) : (
               <Icon
-                fontSize={24}
+                fontSize={25}
                 mr={{ base: 1, md: 2 }}
                 as={directoryState.selectedMenuItem.icon}
                 color={directoryState.selectedMenuItem.iconColor}
@@ -50,12 +63,12 @@ const UserMenu: React.FC = () => {
             )}
 
             <Flex display={{ base: "none", lg: "flex" }}>
-              <Text fontWeight={600} fontSize="10pt">
+              <Text fontWeight={600} fontSize="10pt" color="black">
                 {directoryState.selectedMenuItem.displayText}
               </Text>
             </Flex>
           </Flex>
-          <ChevronDownIcon />
+          <ChevronDownIcon color="black" />
         </Flex>
       </MenuButton>
 

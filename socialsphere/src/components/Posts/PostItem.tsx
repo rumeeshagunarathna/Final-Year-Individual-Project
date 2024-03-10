@@ -92,7 +92,7 @@ const PostItem: React.FC<PostItemProps> = ({
   return (
     <Flex
       border="1px solid"
-      bg="white"
+      bg="gray.700"
       borderColor={singlePostPage ? "white" : "gray.300"}
       borderRadius={singlePostPage ? "4px 4px 0px 0px" : "4px"}
       _hover={{ borderColor: singlePostPage ? "none" : "gray.500" }}
@@ -102,7 +102,7 @@ const PostItem: React.FC<PostItemProps> = ({
       <Flex
         direction="column"
         align="center"
-        bg={singlePostPage ? "none" : "gray.100"}
+        bg={singlePostPage ? "none" : "gray.600"}
         p={2}
         borderRadius={singlePostPage ? "0" : "3px 0px 0px 3px"}
         width="40px"
@@ -124,7 +124,7 @@ const PostItem: React.FC<PostItemProps> = ({
           cursor="pointer"
           onClick={(event) => onVote(event, post, 1, post.communityId)}
         />
-        <Text fontSize="9pt">{post.voteStatus}</Text>
+        <Text fontSize="9pt">{post.voteStatus} </Text>
         <Icon
           as={
             userVoteValue === -1
@@ -179,7 +179,7 @@ const PostItem: React.FC<PostItemProps> = ({
                     onClick={(event) => event.stopPropagation()}
                   >{`s/${post.communityId}`}</Text>
                 </Link>
-                <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+                <Icon as={BsDot} color={"white"} fontSize={8} />
               </>
             )}
             {/* Home page Check */}

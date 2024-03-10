@@ -6,7 +6,7 @@ import {
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { communityState } from "../atoms/communitiesAtom";
-import { FaReddit } from "react-icons/fa";
+
 import { IoIosStarHalf } from "react-icons/io";
 
 
