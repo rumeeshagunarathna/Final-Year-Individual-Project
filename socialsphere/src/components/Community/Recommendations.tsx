@@ -60,6 +60,8 @@ const Recommendations: React.FC= () => {
       cursor="pointer"
       border="1px solid"
       borderColor="gray.300"
+      //color="white"
+      //fontWeight={600}
     >
       <Flex
         align="flex-end"

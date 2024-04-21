@@ -12,25 +12,25 @@ const Searchinput: React.FC<SearchinputProps> = ({ user}) => {
     <Flex flexGrow={1} maxWidth={user ? "auto" : "600px"} mr={2} align="center">
       <InputGroup>
         <InputLeftElement pointerEvents="none">
-          <SearchIcon color="gray.700" mb={1} mt={3}/>
+          <SearchIcon color="gray.400" mb={1} mt={3}/>
         </InputLeftElement>
         
 
         <Input
           placeholder="Search Here..."
           fontSize="10pt"
-          _placeholder={{ color: "gray.700" }}
+          _placeholder={{ color: "gray.500" }}
           _hover={{
             bg: "white",
             border: "1px solid",
-            borderColor: "white",
+            borderColor: "blue.500",
           }}
           _focus={{
             outline: "none",
             border: "0.5px solid",
-            borderColor: "gray.500",
+            borderColor: "blue.500",
           }}
-          height="50px"
+          height="34px"
           bg="gray.50"
         />
       </InputGroup>

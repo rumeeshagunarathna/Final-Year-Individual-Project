@@ -12,9 +12,9 @@ const AuthButtons: React.FC = () => {
         <>
           <Button
             variant="outline"
-            color="black"
-            bg="white"
-            height="30px"
+            //color="black"
+            //bg="white"
+            height="28px"
             display={{ base: "none", sm: "flex" }}
             width={{ base: "70px", md: "110px" }}
             mr={2}
@@ -23,9 +23,9 @@ const AuthButtons: React.FC = () => {
             LogIn
           </Button>
           <Button
-            height="30px"
-            color="black"
-            bg="white"
+            height="28px"
+            //color="black"
+            //bg="white"
             display={{ base: "none", sm: "flex" }}
             width={{ base: "70px", md: "110px" }}
             mr={2}

@@ -65,6 +65,9 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
       await updateDoc(doc(firestore, "communities", communityData.id), {
         imageURL: downloadURL,
       });
+
+      console.log("HERE IS DOWNLOAD URL", downloadURL);
+
       setCommunityStateValue((prev) => ({
         ...prev,
         currentCommunity: {
@@ -107,7 +110,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
         <Stack mt={2}>
           <Flex width="100%" p={2} fontSize="10pt" fontWeight={700}>
             <Flex direction="column" flexGrow={1}>
-              <Text>{communityData.numberOfMembers?.toLocaleString()}</Text>
+              <Text>{communityData.numberOfMembers.toLocaleString()}</Text>
               <Text>Members</Text>
             </Flex>
             <Flex direction="column" flexGrow={1}>

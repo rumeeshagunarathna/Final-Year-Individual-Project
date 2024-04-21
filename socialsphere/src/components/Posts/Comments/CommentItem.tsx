@@ -66,7 +66,7 @@ const CummentItem: React.FC<CummentItemProps> = ({
           direction="row"
           align="center"
           cursor="pointer"
-          //fontWeight={600}
+          fontWeight={600}
           color="gray.500"
         >
           <Icon as={IoArrowUpCircleOutline} />

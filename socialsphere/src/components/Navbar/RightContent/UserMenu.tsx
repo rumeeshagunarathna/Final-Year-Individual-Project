@@ -67,16 +67,16 @@ const goToPremiumPage = () => {
         _hover={{
           bg: "white",
           border: "1px solid",
-          borderColor: "white",
+          borderColor: "gray.200",
         }}
         _focus={{
-          outline: "white",
+          outline: "gray.300",
           border: "0.5px solid",
           borderColor: "gray.500",
         }}
         _placeholder={{ color: "gray.500" }}
         height="50px"
-        bg="gray.50"
+        bg="gray.200"
       >
         <Flex align="center">
           <Flex align="center">

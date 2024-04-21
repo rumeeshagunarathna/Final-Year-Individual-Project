@@ -16,29 +16,29 @@ export const Button: ComponentStyleConfig = {
     },
     md: {
       fontSize: "10pt",
-      // height: "28px",
+      
     },
   },
   variants: {
     solid: {
       color: "white",
-      bg: "black",
+      bg: "blue.500",
       _hover: {
-        bg: "black",
+        bg: "blue.400",
       },
     },
     outline: {
-      color: "black",
+      color: "blue.500",
       border: "1px solid",
-      borderColor: "black",
+      borderColor: "blue.500",
     },
     oauth: {
       height: "34px",
-      bg:'whhite',
+      bg:'white',
       border: "1px solid",
-      borderColor: "black",
+      borderColor: "gray.300",
       _hover: {
-        bg: "white",
+        bg: "gray.50",
       },
     },
   },

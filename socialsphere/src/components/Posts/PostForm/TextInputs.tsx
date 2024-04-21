@@ -32,7 +32,7 @@ const TextInputs: React.FC<TextInputsProps> = ({
         _placeholder={{ color: "gray.500" }}
         _focus={{
           outline: "none",
-          bg: "gray.100",
+          bg: "white",
           border: "1px solid",
           borderColor: "black",
         }}
@@ -49,7 +49,7 @@ const TextInputs: React.FC<TextInputsProps> = ({
         _placeholder={{ color: "gray.500" }}
         _focus={{
           outline: "none",
-          bg: "gray.100",
+          bg: "white",
           border: "1px solid",
           borderColor: "black",
         }}

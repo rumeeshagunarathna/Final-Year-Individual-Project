@@ -51,7 +51,7 @@ const CreatePostLink: React.FC = () => {
         <Flex
           justify="space-between"
           align="center"
-          bg="white"
+          bg="gray.300"
           height="56px"
           width="48%"
           borderRadius={4}
@@ -60,7 +60,7 @@ const CreatePostLink: React.FC = () => {
           p={2}
           mb={4}
         >
-          <Icon as={IoIosStarHalf} fontSize={36} color="gray.300" mr={4} />
+          <Icon as={IoIosStarHalf} fontSize={36} color="gray.400" mr={4} />
           <Input
             placeholder="Create your post"
             fontSize="10pt"
@@ -68,13 +68,13 @@ const CreatePostLink: React.FC = () => {
             _hover={{
               bg: "white",
               border: "1px solid",
-              borderColor: "green.500",
+              borderColor: "blue.500",
             }}
             _focus={{
               outline: "none",
               bg: "white",
               border: "1px solid",
-              borderColor: "green.500",
+              borderColor: "blue.500",
             }}
             bg="gray.50"
             borderColor="gray.200"
@@ -94,7 +94,7 @@ const CreatePostLink: React.FC = () => {
           <Icon
             as={IoIosStarHalf}
             fontSize={36}
-            color="gray.300"
+            color="gray.400"
             mr={4}
             cursor="pointer"
           />
@@ -103,7 +103,7 @@ const CreatePostLink: React.FC = () => {
         <Flex
           justify="space-between"
           align="center"
-          bg="white"
+          bg="gray.300"
           height="56px"
           width="48%"
           borderRadius={4}
@@ -112,7 +112,7 @@ const CreatePostLink: React.FC = () => {
           p={2}
           mb={4}
         >
-          <Icon as={IoIosStarHalf} fontSize={36} color="gray.300" mr={4} />
+          <Icon as={IoIosStarHalf} fontSize={36} color="gray.400" mr={4} />
           <Input
             placeholder="Create a community"
             fontSize="10pt"
@@ -120,13 +120,13 @@ const CreatePostLink: React.FC = () => {
             _hover={{
               bg: "white",
               border: "1px solid",
-              borderColor: "green.500",
+              borderColor: "yellow.500",
             }}
             _focus={{
               outline: "none",
               bg: "white",
               border: "1px solid",
-              borderColor: "green.500",
+              borderColor: "yellow.500",
             }}
             bg="gray.50"
             borderColor="gray.200"
@@ -146,7 +146,7 @@ const CreatePostLink: React.FC = () => {
           <Icon
             as={IoIosStarHalf}
             fontSize={36}
-            color="gray.300"
+            color="gray.400"
             mr={4}
             cursor="pointer"
           />

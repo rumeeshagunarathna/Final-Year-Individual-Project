@@ -199,14 +199,14 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
 
                   <Checkbox
                     colorScheme="blue"
-                    name="restricted"
-                    isChecked={communityType === "restricted"}
+                    name="approved"
+                    isChecked={communityType === "approved"}
                     onChange={onCommunityTypeChange}
                   >
                     <Flex align="center">
                       <Icon as={BsFillEyeFill} color="gray.500" mr={2} />
                       <Text fontSize="10pt" mr={1}>
-                        Restricted
+                        Approved
                       </Text>
                       <Text fontSize="8pt" mr={1} color="gray.600">
                         ( Anyone can view this community, but only approved
@@ -215,7 +215,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                     </Flex>
                   </Checkbox>
 
-                  <Checkbox
+                  {/* <Checkbox
                     colorScheme="blue"
                     name="private"
                     isChecked={communityType === "private"}
@@ -231,7 +231,7 @@ const CreateCommunityModal: React.FC<CreateCommunityModalProps> = ({
                         this community )
                       </Text>
                     </Flex>
-                  </Checkbox>
+                  </Checkbox> */}
                 </Stack>
               </Box>
             </ModalBody>

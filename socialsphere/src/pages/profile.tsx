@@ -497,12 +497,12 @@ const Profile: React.FC = () => {
     //       {/* Existing UI for community snippets and members */}
     //     </div>
 
-    <div>
+    <div color="white">
       {/* Table for user data */}
 
-      <h3>User Data</h3><br></br>
-      <table style={{ borderCollapse: "collapse", width: "100%" }}>
-        <tbody>
+      <h3 color="white">User Data</h3><br></br>
+      <table style={{ borderCollapse: "collapse", width: "100%" ,}}>
+        <tbody >
           <tr>
             <td style={{ border: "1px solid #ddd", padding: "8px" }}>
               User Name:

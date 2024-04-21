@@ -64,7 +64,7 @@ const Premium: React.FC = () => {
           <Text fontWeight={600} mb={2} fontSize="11pt">
             Try Premium
           </Text>
-          <Text>The best experience, with a verified account</Text>
+          <Text>The best experience, with exclusive features.</Text>
         </Stack>
       </Flex>
       <Button

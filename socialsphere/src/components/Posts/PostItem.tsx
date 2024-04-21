@@ -92,7 +92,7 @@ const PostItem: React.FC<PostItemProps> = ({
   return (
     <Flex
       border="1px solid"
-      bg="gray.700"
+      bg="white"
       borderColor={singlePostPage ? "white" : "gray.300"}
       borderRadius={singlePostPage ? "4px 4px 0px 0px" : "4px"}
       _hover={{ borderColor: singlePostPage ? "none" : "gray.500" }}
@@ -102,7 +102,7 @@ const PostItem: React.FC<PostItemProps> = ({
       <Flex
         direction="column"
         align="center"
-        bg={singlePostPage ? "none" : "gray.600"}
+        bg={singlePostPage ? "none" : "gray.100"}
         p={2}
         borderRadius={singlePostPage ? "0" : "3px 0px 0px 3px"}
         width="40px"
@@ -120,11 +120,11 @@ const PostItem: React.FC<PostItemProps> = ({
               ? "yellow.500"
               : "gray.300"
           }
-          fontSize={22}
+          fontSize={27}
           cursor="pointer"
           onClick={(event) => onVote(event, post, 1, post.communityId)}
         />
-        <Text fontSize="9pt">{post.voteStatus} </Text>
+        <Text fontSize="11pt">{post.voteStatus} </Text>
         <Icon
           as={
             userVoteValue === -1
@@ -140,7 +140,7 @@ const PostItem: React.FC<PostItemProps> = ({
               ? "blue.300"
               : "gray.300"
           }
-          fontSize={22}
+          fontSize={27}
           cursor="pointer"
           onClick={(event) => onVote(event, post, -1, post.communityId)}
         />
@@ -153,7 +153,13 @@ const PostItem: React.FC<PostItemProps> = ({
           </Alert>
         )}
         <Stack spacing={1} p="10px">
-          <Stack direction="row" spacing={0.6} align="center" fontSize="9pt">
+          <Stack
+            direction="row"
+            spacing={0.6}
+            align="center"
+            fontSize="10pt"
+            //color="white"
+          >
             {/* Home page Check */}
             {homePage && (
               <>
@@ -161,42 +167,45 @@ const PostItem: React.FC<PostItemProps> = ({
                   <Image
                     src={post.communityImageURL}
                     borderRadius="full"
-                    boxSize="18px"
+                    boxSize="29px"
                     mr={2}
                   />
                 ) : (
                   <Icon
                     as={IoIosStarHalf}
-                    fontSize="18pt"
+                    fontSize="20pt"
                     mr={1}
                     color="green.300"
                   />
                 )}
                 <Link href={`s/${post.communityId}`}>
                   <Text
+                    color="blue.500"
                     fontWeight={700}
                     _hover={{ textDecoration: "underline" }}
                     onClick={(event) => event.stopPropagation()}
                   >{`s/${post.communityId}`}</Text>
                 </Link>
-                <Icon as={BsDot} color={"white"} fontSize={8} />
+                <Icon as={BsDot} color={"gray.500"} fontSize={8} />
               </>
             )}
             {/* Home page Check */}
 
             <Text>
               Posted by
-              <Icon as={BsDot} color={"gray.500"} fontSize={8} />
-              <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+              <Icon as={BsDot} color="gray.500" fontSize={8} />
+              <Icon as={BsDot} color="gray.500" fontSize={8} />
               user/{post.creatorDisplayName}{" "}
-              <Icon as={BsDot} color={"gray.500"} fontSize={8} />
+              <Icon as={BsDot} color="gray.500" fontSize={8} />
               {moment(new Date(post.createdAt?.seconds * 1000)).fromNow()}
             </Text>
           </Stack>
-          <Text fontSize="12pt" fontWeight={600}>
+          <Text fontSize="12pt" fontWeight={600} >
             {post.title}
           </Text>
-          <Text fontSize="10pt">{post.body}</Text>
+          <Text fontSize="10pt" >
+            {post.body}
+          </Text>
           {post.imageURL && (
             <Flex justify="center" align="center" p={2}>
               {loadingImage && (
@@ -212,13 +221,13 @@ const PostItem: React.FC<PostItemProps> = ({
             </Flex>
           )}
         </Stack>
-        <Flex ml={1} mb={0.5} color="gray.500">
+        <Flex ml={1} mb={0.5} >
           {/* icon 1 */}
           <Flex
             align="center"
             p="8px 10px"
             borderRadius={4}
-            _hover={{ bg: "gray.200" }}
+            _hover={{ bg: "gray.100" }}
             cursor="pointer"
           >
             <Icon as={IoBookmarkOutline} mr={2} />
@@ -230,7 +239,7 @@ const PostItem: React.FC<PostItemProps> = ({
             align="center"
             p="8px 10px"
             borderRadius={4}
-            _hover={{ bg: "gray.200" }}
+            _hover={{ bg: "gray.100" }}
             cursor="pointer"
           >
             <Icon as={IoArrowRedoOutline} mr={2} />
@@ -242,7 +251,7 @@ const PostItem: React.FC<PostItemProps> = ({
             align="center"
             p="8px 10px"
             borderRadius={4}
-            _hover={{ bg: "gray.200" }}
+            _hover={{ bg: "gray.100" }}
             cursor="pointer"
           >
             <Icon as={BsChat} mr={2} />
@@ -256,7 +265,7 @@ const PostItem: React.FC<PostItemProps> = ({
               align="center"
               p="8px 10px"
               borderRadius={4}
-              _hover={{ bg: "gray.200" }}
+              _hover={{ bg: "gray.100" }}
               cursor="pointer"
               onClick={handleDelete}
             >
@@ -276,11 +285,12 @@ const PostItem: React.FC<PostItemProps> = ({
             align="center"
             p="8px 10px"
             borderRadius={4}
-            _hover={{ bg: "gray.200" }}
+            _hover={{ bg: "gray.100" }}
             cursor="pointer"
+            onClick={goToReportPage}
           >
-            <Icon as={RiFlag2Line} mr={2} onClick={goToReportPage} />
-            <Text fontSize="9pt" onClick={goToReportPage}>report</Text>
+            <Icon as={RiFlag2Line} mr={2} />
+            <Text fontSize="9pt">report</Text>
           </Flex>
         </Flex>
       </Flex>

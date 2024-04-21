@@ -12,7 +12,7 @@ import { auth, firestore } from "../firebase/clientApp";
 import { User } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
-const premium: React.FC = () => {
+const advertise: React.FC = () => {
 
    const [signInWithGoogle, userCred, loading, error] =
      useSignInWithGoogle(auth);
@@ -235,4 +235,4 @@ const premium: React.FC = () => {
     </Flex>
   );
 };
-export default premium;
+export default advertise;

@@ -3,12 +3,12 @@ import { atom } from "recoil";
 
 
 export interface Community {
-      id: string;
-      creatorId: string;
-      numberOfMembers: number;
-      privacyType: "public" | "restricted" | "private";
-      createdAt?: Timestamp;
-      imageURL?: string;
+  id: string;
+  creatorId: string;
+  numberOfMembers: number;
+  privacyType: "public" | "approved";
+  createdAt?: Timestamp;
+  imageURL?: string;
 }
 export interface CommunitySnippet {
       
