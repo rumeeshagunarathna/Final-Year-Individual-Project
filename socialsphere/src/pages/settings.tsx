@@ -1,6 +1,6 @@
 import React from "react";
 
-const premium: React.FC = () => {
+const settings: React.FC = () => {
   return <div>settings page</div>;
 };
-export default premium;
+export default settings;
