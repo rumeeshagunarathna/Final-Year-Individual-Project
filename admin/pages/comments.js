@@ -5,7 +5,7 @@ import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import Layout from "../components/Layout";
 
 async function fetchDataFromFirestore() {
-  const querySnapshot = await getDocs(collection(db, "users"));
+  const querySnapshot = await getDocs(collection(db, "comments"));
 
   const data = [];
   querySnapshot.forEach((doc) => {
@@ -14,7 +14,7 @@ async function fetchDataFromFirestore() {
   return data;
 }
 
-const users = () => {
+const comments = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
@@ -27,53 +27,57 @@ const users = () => {
 
   const handleDelete = async (id) => {
     try {
-      await deleteDoc(doc(db, "users", id));
+      await deleteDoc(doc(db, "comments", id));
       setUserData(userData.filter((item) => item.id !== id));
     } catch (error) {
       console.error("Error removing document: ", error);
     }
   };
   return (
-    <Layout>
-      {/* <main>
-        <div className="overflow-x-auto">User Data</div>
-        <div>
-          {userData.map((user) => (
-            <div key={user.id} className="mb-4">
-              <p className="text-xl front-bold">{user.uid}</p>
-              <p className="text-xl front-bold">{user.email}</p>
-              <p className="text-xl front-bold">{user.displayName}</p>
-            </div>
-          ))}
-        </div>
-      </main> */}
+    // <Layout>
+    //   <main>
+    //     <div>Fetch Data</div>
+    //     <div>
+    //       {userData.map((posts) => (
+    //         <div key={posts.id} className="mb-4">
+    //           <p className="text-xl front-bold">{posts.body}</p>
+    //           <p className="text-xl front-bold">{posts.communityId}</p>
+    //           <p className="text-xl front-bold">{posts.title}</p>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </main>
+    // </Layout>
 
+    <Layout>
       <main>
         <div className="overflow-x-auto">
           <table className="table-auto border-collapse border border-gray-800">
             <thead>
               <tr className="bg-gray-800 text-white">
-                <th className="px-4 py-2">UserID</th>
-                <th className="px-4 py-2">User Email</th>
-                <th className="px-4 py-2">UserName</th>
-                {/* <th className="px-4 py-2">Created At</th> */}
-                {/* <th className="px-4 py-2">Related To</th>
-                <th className="px-4 py-2">Report</th>
-                <th className="px-4 py-2">Action</th> */}
+                <th className="px-4 py-2">User/CreatorID</th>
+                <th className="px-4 py-2">CommunityID</th>
+                <th className="px-4 py-2">PostID</th>
+                <th className="px-4 py-2">Post Title</th>
+                <th className="px-4 py-2">Post Content</th>
+                <th className="px-4 py-2">Created At</th>
+                <th className="px-4 py-2">Action</th>
               </tr>
             </thead>
             <tbody>
-              {userData.map((user) => (
-                <tr key={user.id} className="text-center">
-                  <td className="border px-4 py-2">{user.uid}</td>
-                  <td className="border px-4 py-2">{user.email}</td>
-                  <td className="border px-4 py-2">{user.displayName}</td>
-                  {/* <td className="border px-4 py-2">{user.createdAt}</td> */}
-                  {/* <td className="border px-4 py-2">{report.relatedto}</td>
-                  <td className="border px-4 py-2">{report.report}</td> */}
+              {userData.map((comments) => (
+                <tr key={comments.id} className="text-center">
+                  <td className="border px-4 py-2">{comments.id}</td>
+                  <td className="border px-4 py-2">{comments.communityId}</td>
+                  <td className="border px-4 py-2">{comments.postId}</td>
+                  <td className="border px-4 py-2">{comments.postTitle}</td>
+                  <td className="border px-4 py-2">{comments.text}</td>
+                  <td className="border px-4 py-2">
+                    {comments.createdAt.toDate().toLocaleString()}
+                  </td>
                   <td className="border px-4 py-2">
                     <button
-                      onClick={() => handleDelete(user.id)}
+                      onClick={() => handleDelete(comments.id)}
                       style={{
                         backgroundColor: "#EF4444", // Red background color
                         borderColor: "#EF4444", // Red border color
@@ -94,4 +98,4 @@ const users = () => {
   );
 };
 
-export default users;
+export default comments;

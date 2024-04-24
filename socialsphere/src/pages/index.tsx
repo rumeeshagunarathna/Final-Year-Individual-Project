@@ -1,4 +1,15 @@
+"use client";
 
+import {
+  Flex,
+  Container,
+  
+  Stack,
+  Text,
+ 
+  Icon,
+  IconProps,
+} from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { Box, Button, CircularProgress, Heading, Link } from "@chakra-ui/react"; // Import Chakra UI components

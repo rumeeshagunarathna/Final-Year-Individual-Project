@@ -39,7 +39,7 @@ const CummentItem: React.FC<CummentItemProps> = ({
 
 
   const goToReportPage = () => {
-    router.push("/report"); // Navigate to the profile page
+    router.push("/report"); // Navigate to the report page
   };
   
   return (

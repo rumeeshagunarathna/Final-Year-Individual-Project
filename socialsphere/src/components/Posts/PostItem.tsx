@@ -1,7 +1,7 @@
 import { Post } from "../../atoms/postsAtom";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsChat, BsDot, BsFlag } from "react-icons/bs";
-import { FaReddit } from "react-icons/fa";
+
 import { IoIosStarHalf } from "react-icons/io";
 
 import {

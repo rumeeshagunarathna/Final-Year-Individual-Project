@@ -164,29 +164,45 @@ export default function Premium() {
                   zIndex: -1,
                 }}
               >
-                Freelance
+                Premium
               </Text>
               <br />{" "}
               <Text color={"blue.400"} as={"span"}>
-                Design Projects
+                Social Sphere
               </Text>{" "}
             </Heading>
             <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-              The project board is an exclusive resource for contract work.
-              It&apos;s perfect for freelancers, agencies, and moonlighters.
+              Help support SocialSphere and get VIP treatment and exclusive
+              access.
+              {/* It&apos;s perfect for freelancers, agencies, and moonlighters. */}
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-              <Button
+              {/* <Button
                 rounded={"full"}
                 bg={"blue.400"}
                 color={"white"}
                 _hover={{
-                  bg: "blue.500",
+                  bg: "blue.600",
                 }}
               >
-                Create Project
+                $4.99/Month
+              </Button> */}
+              <a
+                href="https://buy.stripe.com/test_7sIeYG836aFFcuc5kk"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                $4.99/Month
+              </a>
+              <Button
+                rounded={"full"}
+                bg={"yellow.400"}
+                color={"black"}
+                _hover={{
+                  bg: "yellow.500",
+                }}
+              >
+                $47.99/Year (Save 30%)
               </Button>
-              <Button rounded={"full"}>How It Works</Button>
             </Stack>
           </Stack>
         </Flex>
@@ -208,58 +224,53 @@ export default function Premium() {
         color={useColorModeValue("gray.700", "gray.200")}
         p={4}
       >
-     
         <Stack spacing={4} as={Container} maxW={"3xl"} textAlign={"center"}>
           <Heading fontSize={{ base: "2xl", sm: "4xl" }} fontWeight={"bold"}>
-            Short heading
+            Join SocialSphere Premium Today
           </Heading>
           <Text color={"gray.600"} fontSize={{ base: "sm", sm: "lg" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            obcaecati ut cupiditate pariatur, dignissimos, placeat amet
-            officiis.
+            Premium socialsphere is a paid subscription that comes with a bundle
+            of features and benefits available for both eligible profiles and
+            eligible businesses.
           </Text>
         </Stack>
 
         <Container maxW={"5xl"} mt={12}>
           <Flex flexWrap="wrap" gridGap={6} justify="center">
             <Card
-              heading={"Heading"}
+              heading={"Verified Account*"}
               icon={<Icon as={FcAssistant} w={10} h={10} />}
               description={
-                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+                "To confirm that a notable account.confirms that the account is validated and authentic. This subscription comes with a bundle of features and benefits available for both eligible profiles and eligible businesses."
               }
               href={"#"}
             />
             <Card
-              heading={"Heading"}
+              heading={"Ad-free Browsing"}
               icon={<Icon as={FcCollaboration} w={10} h={10} />}
-              description={
-                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-              }
+              description={"Enjoy browsing without interruptions from ads."}
               href={"#"}
             />
             <Card
-              heading={"Heading"}
+              heading={"Enjoy videos offline"}
               icon={<Icon as={FcDonate} w={10} h={10} />}
               description={
-                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+                "Download videos to watch later when you’re offline or on the go."
               }
               href={"#"}
             />
             <Card
-              heading={"Heading"}
+              heading={"Avatar Gear"}
               icon={<Icon as={FcManager} w={10} h={10} />}
               description={
-                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
+                "Outfit your avatar with the best gear and accessories."
               }
               href={"#"}
             />
             <Card
-              heading={"Heading"}
+              heading={"Custom App Icons"}
               icon={<Icon as={FcAbout} w={10} h={10} />}
-              description={
-                "Lorem ipsum dolor sit amet catetur, adipisicing elit."
-              }
+              description={"Change your app icon to something more your style."}
               href={"#"}
             />
           </Flex>
@@ -267,9 +278,7 @@ export default function Premium() {
       </Box>
 
       {/* Footer */}
-      <Box
-        p={4}
-      >
+      <Box p={4}>
         <Container as={Stack} maxW={"6xl"} py={10}>
           <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
             <Stack align={"flex-start"}>
@@ -373,11 +382,9 @@ export default function Premium() {
               flexGrow: 1,
               ml: 8,
             }}
-          >
-            <Logo />
-          </Flex>
+          ></Flex>
           <Text pt={6} fontSize={"sm"} textAlign={"center"}>
-            © 2022 Chakra Templates. All rights reserved
+            © 2024 SocialSphere. All rights reserved
           </Text>
         </Box>
       </Box>

@@ -28,6 +28,8 @@ import Recommendations from "../components/Community/Recommendations";
 import Premium from "../components/Community/Premium";
 import PersonalHome from "../components/Community/PersonalHome";
 import { useRouter } from "next/router";
+import Rules from "@/components/Community/Communityrules";
+import Communityrules from "@/components/Community/Communityrules";
 //import styles from "@/styles/Home.module.css";
 
 
@@ -190,6 +192,7 @@ const Home: NextPage = () => {
             <Recommendations />
             <Premium />
             <PersonalHome />
+            <Communityrules/>
             {/* <Chatroom /> */}
           </Stack>
         </>

@@ -5,7 +5,7 @@ import { GrAdd } from "react-icons/gr";
 import { useRecoilValue } from "recoil";
 import { communityState } from "../../../atoms/communitiesAtom";
 import MenuListItem from "./MenuListItem";
-import { FaReddit } from "react-icons/fa";
+
 import { IoIosStarHalf } from "react-icons/io";
 
 type CommunitiesProps = {};

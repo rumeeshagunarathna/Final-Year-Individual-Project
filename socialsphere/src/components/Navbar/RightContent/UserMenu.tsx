@@ -1,4 +1,4 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ArrowLeftIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Menu,
   MenuButton,
@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { User, signOut } from "firebase/auth";
 import React from "react";
-import { FaRedditSquare } from "react-icons/fa";
+
 import { VscAccount } from "react-icons/vsc";
 import { IoSparkles } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
@@ -25,7 +25,7 @@ import { authModalState } from "@/atoms/authModalAtoms";
 import { communityState } from "@/atoms/communitiesAtom";
 import { useRouter } from "next/router";
 import { IoMdSettings } from "react-icons/io";
-import { FcAdvertising } from "react-icons/fc";
+import { FcAdvertising, FcRules } from "react-icons/fc";
 import { GiCheckedShield } from "react-icons/gi";
 
 
@@ -49,6 +49,12 @@ const goToPremiumPage = () => {
 };
   const goToAdvertisePage = () => {
     router.push("/advertise");
+  };
+  const goToRulesPage = () => {
+    router.push("/rules");
+  };
+  const goToHomePage = () => {
+    router.push("/home");
   };
 
 
@@ -82,12 +88,7 @@ const goToPremiumPage = () => {
           <Flex align="center">
             {user ? (
               <>
-                <Icon
-                  fontSize={24}
-                  mr={1}
-                  color={"black"}
-                  as={IoIosStarHalf}
-                />
+                <Icon fontSize={24} mr={1} color={"black"} as={IoIosStarHalf} />
                 <Flex
                   direction="column"
                   display={{ base: "none", lg: "flex" }}
@@ -119,6 +120,26 @@ const goToPremiumPage = () => {
               fontWeight={700}
               mb={4}
               _hover={{ bg: "blue.500", color: "white" }}
+              onClick={goToHomePage}
+            >
+              <Flex align="center">
+                <Icon
+                  fontSize={20}
+                  mr={2}
+                  color="red.500"
+                  as={ArrowLeftIcon}
+                  onClick={goToHomePage}
+                />{" "}
+                Home
+              </Flex>
+            </MenuItem>
+            <MenuDivider />
+
+            <MenuItem
+              fontSize="10pt"
+              fontWeight={700}
+              mb={4}
+              _hover={{ bg: "blue.500", color: "white" }}
               onClick={goToProfilePage}
             >
               <Flex align="center">
@@ -133,6 +154,7 @@ const goToPremiumPage = () => {
               </Flex>
             </MenuItem>
             <MenuDivider />
+
             <MenuItem
               fontSize="10pt"
               fontWeight={700}
@@ -191,6 +213,27 @@ const goToPremiumPage = () => {
             </MenuItem>
 
             <MenuDivider />
+
+            <MenuItem
+              fontSize="10pt"
+              fontWeight={700}
+              mb={4}
+              _hover={{ bg: "blue.500", color: "white" }}
+              onClick={goToRulesPage}
+            >
+              <Flex align="center">
+                <Icon
+                  fontSize={20}
+                  mr={2}
+                  color="yellow.500"
+                  as={FcRules}
+                  onClick={goToRulesPage}
+                />{" "}
+                Rules
+              </Flex>
+            </MenuItem>
+            <MenuDivider />
+
             <MenuItem
               fontSize="10pt"
               fontWeight={700}

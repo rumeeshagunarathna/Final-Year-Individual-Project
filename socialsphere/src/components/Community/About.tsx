@@ -11,6 +11,11 @@ import {
   Text,
   Image,
   Spinner,
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+  Container,
 } from "@chakra-ui/react";
 import { Community, communityState } from "../../atoms/communitiesAtom";
 import React, { useEffect, useRef, useState } from "react";
@@ -26,6 +31,7 @@ import { IoIosStarHalf } from "react-icons/io";
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { doc, updateDoc } from "firebase/firestore";
 import { useRecoilValue, useSetRecoilState } from "recoil";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 
 type AboutProps = {
   communityData: Community;
@@ -202,7 +208,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
           )}
         </Stack>
       </Flex>
-      <Divider/>
+      <Divider />
       <Box>
         <Flex
           justify="space-between"
@@ -225,6 +231,181 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
           borderRadius="0px 0px 4px 4px"
         >
           <Stack mt={2}>
+            <Container>
+              <Accordion allowMultiple width="100%" maxW="lg" rounded="lg">
+                {/* 1 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 1</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Remember the human. Socialsphere is a place for creating
+                      community and belonging, not for attacking marginalized or
+                      vulnerable groups of people. Everyone has a right to use
+                      the platform free of harassment, bullying, and threats of
+                      violence. Communities and users that incite violence or
+                      that promote hate based on identity or vulnerability will
+                      be banned.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 2 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 2</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Abide by community rules. Post authentic content into
+                      communities where you have a personal interest, and do not
+                      cheat or engage in content manipulation (including
+                      spamming, vote manipulation, ban evasion, or subscriber
+                      fraud) or otherwise interfere with or disrupt the
+                      communities.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 3 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 3</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Respect the privacy of others. Instigating harassment, for
+                      example by revealing someone’s personal or confidential
+                      information, is not allowed. Never post or threaten to
+                      post intimate or sexually-explicit media of someone
+                      without their consent.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 4 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 4</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Do not share or encourage the sharing of sexual, abusive,
+                      or suggestive content involving minors. Any predatory or
+                      inappropriate behavior involving a minor is also strictly
+                      prohibited.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 5 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 5</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      You don’t have to use your real name to use SocialSphere,
+                      but don’t impersonate an individual or an entity in a
+                      misleading or deceptive manner.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 6 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 6</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Ensure people have predictable experiences on SocialSphere
+                      by properly labeling content and communities, particularly
+                      content that is graphic, sexually-explicit, or offensive.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 7 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Rule 7</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Keep it legal, and avoid posting illegal content or
+                      soliciting or facilitating illegal or prohibited
+                      transactions.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+
+                {/* 8 */}
+                <AccordionItem>
+                  <AccordionButton
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    p={4}
+                  >
+                    <Text fontSize="md">Enforcement</Text>
+                    <ChevronDownIcon fontSize="24px" />
+                  </AccordionButton>
+                  <AccordionPanel pb={4}>
+                    <Text color="gray.600">
+                      Don’t break the site or do anything that interferes with
+                      normal use of SocialSphere.We have a variety of ways of
+                      enforcing our rules, including, but not limited to Removal
+                      of content.
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+              </Accordion>
+            </Container>
+
             <Link href={`/rules`}>
               <Button
                 variant="outline"

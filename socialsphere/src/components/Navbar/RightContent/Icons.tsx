@@ -8,8 +8,14 @@ import {
   IoNotificationsOutline,
   IoVideocamOutline,
 } from "react-icons/io5";
+import router from "next/router";
 
 const Icons: React.FC = () => {
+
+const goToReportPage = () => {
+  router.push("/indexchat"); // Navigate to the report page
+};
+
   return (
     <Flex>
       <Flex
@@ -59,7 +65,7 @@ const Icons: React.FC = () => {
           borderRadius={4}
           _hover={{ bg: "gray.200" }}
         >
-          <Icon as={GrAdd} fontSize={20}  />
+          <Icon as={GrAdd} fontSize={20} />
         </Flex>
       </Flex>
 
@@ -72,7 +78,7 @@ const Icons: React.FC = () => {
           borderRadius={4}
           _hover={{ bg: "gray.200" }}
         >
-          <Icon as={BsChatDots} fontSize={20}  />
+          <Icon as={BsChatDots} fontSize={20} onClick={goToReportPage} />
         </Flex>
 
         <Flex
@@ -83,7 +89,7 @@ const Icons: React.FC = () => {
           borderRadius={4}
           _hover={{ bg: "gray.200" }}
         >
-          <Icon as={IoNotificationsOutline} fontSize={20}  />
+          <Icon as={IoNotificationsOutline} fontSize={20} />
         </Flex>
 
         {/* <Flex

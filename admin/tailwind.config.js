@@ -19,8 +19,8 @@ module.exports = {
     ...defaultTheme,
     colors: {
       ...defaultTheme.colors,
-      primary: "#3B81F6",
-      white: "#ffffff",
+      primary: "#CBD5E0",
+      white: "#000000",
       text: {
         DEFAULT: "#1F2937",
         light: "#6C7281",
@@ -31,6 +31,12 @@ module.exports = {
       },
     },
     extend: {},
+    // Adding a button style
+    button: {
+      base: "py-2 px-4 rounded",
+      primary: "bg-blue-500 hover:bg-blue-700 text-white font-bold",
+      danger: "bg-red-500 hover:bg-red-700 text-white font-bold",
+    },
   },
   plugins: [],
 };

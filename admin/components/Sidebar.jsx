@@ -134,8 +134,6 @@
 
 // export default Sidebar;
 
-
-
 // import Link from 'next/link';
 // import { useRouter } from 'next/router';
 // import React, { useState, useMemo } from 'react';
@@ -243,8 +241,6 @@
 
 // export default Sidebar;
 
-
-
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -263,7 +259,8 @@ const menuItems = [
   { id: 1, label: "Home", icon: HomeIcon, link: "/" },
   { id: 2, label: "Manage Posts", icon: ArticleIcon, link: "/posts" },
   { id: 3, label: "Manage Users", icon: UsersIcon, link: "/users" },
-  { id: 4, label: "Manage Tutorials", icon: VideosIcon, link: "/tutorials" },
+  { id: 4, label: "Manage Comments", icon: VideosIcon, link: "/comments" },
+  { id: 5, label: "Report", icon: ArticleIcon, link: "/report" },
 ];
 
 const Sidebar = () => {
@@ -278,7 +275,7 @@ const Sidebar = () => {
   );
 
   const wrapperClasses = classNames(
-    "h-screen px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
+    " px-4 pt-8 pb-4 bg-light flex justify-between flex-col",
     {
       ["w-80"]: !toggleCollapse,
       ["w-20"]: toggleCollapse,
@@ -320,12 +317,17 @@ const Sidebar = () => {
         <div className="flex items-center justify-between relative">
           <div className="flex items-center pl-1 gap-4">
             <LogoIcon />
+            {/* <img
+              src="/images/logo3.jpg"
+              alt="Logo"
+              className="h-8 w-auto"
+            /> */}
             <span
               className={classNames("mt-2 text-lg font-medium text-text", {
                 hidden: toggleCollapse,
               })}
             >
-              Logo
+              Admin Dashboard
             </span>
           </div>
           {isCollapsible && (

@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["jest", "@testing-library/jest-dom"] // Add this line
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/_app.js", "components/icons/VideosIcon.jsx", "components/Sidebar.jsx", "components/Layout.jsx"],
   "exclude": ["node_modules"]
