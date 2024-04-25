@@ -1,6 +1,23 @@
 import { Post } from "../../atoms/postsAtom";
 import { AiOutlineDelete } from "react-icons/ai";
 import { BsChat, BsDot, BsFlag } from "react-icons/bs";
+//import { ShareSocial } from "react-share-social";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  EmailShareButton,
+  EmailIcon,
+  TelegramIcon,
+  TelegramShareButton,
+  LinkedinShareButton,
+  PinterestShareButton,
+  LinkedinIcon,
+  PinterestIcon,
+} from "react-share";
 
 import { IoIosStarHalf } from "react-icons/io";
 
@@ -16,18 +33,29 @@ import React, { useEffect, useState } from "react";
 import {
   Alert,
   AlertIcon,
+  Button,
   Flex,
   Icon,
   Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Skeleton,
   Spinner,
   Stack,
   Text,
+  useDisclosure,
+  
 } from "@chakra-ui/react";
 import moment from "moment";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { RiFlag2Line } from "react-icons/ri";
+import { title } from "process";
 
 type PostItemProps = {
   post: Post;
@@ -87,8 +115,12 @@ const PostItem: React.FC<PostItemProps> = ({
 
   const goToReportPage = () => {
     router.push("/report"); // Navigate to the report page
+
   };
 
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  
   return (
     <Flex
       border="1px solid"
@@ -200,12 +232,10 @@ const PostItem: React.FC<PostItemProps> = ({
               {moment(new Date(post.createdAt?.seconds * 1000)).fromNow()}
             </Text>
           </Stack>
-          <Text fontSize="12pt" fontWeight={600} >
+          <Text fontSize="12pt" fontWeight={600}>
             {post.title}
           </Text>
-          <Text fontSize="10pt" >
-            {post.body}
-          </Text>
+          <Text fontSize="10pt">{post.body}</Text>
           {post.imageURL && (
             <Flex justify="center" align="center" p={2}>
               {loadingImage && (
@@ -221,7 +251,7 @@ const PostItem: React.FC<PostItemProps> = ({
             </Flex>
           )}
         </Stack>
-        <Flex ml={1} mb={0.5} >
+        <Flex ml={1} mb={0.5}>
           {/* icon 1 */}
           <Flex
             align="center"
@@ -242,8 +272,44 @@ const PostItem: React.FC<PostItemProps> = ({
             _hover={{ bg: "gray.100" }}
             cursor="pointer"
           >
-            <Icon as={IoArrowRedoOutline} mr={2} />
-            <Text fontSize="9pt">Share</Text>
+            <Flex onClick={onOpen}>
+              <Icon as={IoArrowRedoOutline} mr={2} />
+              <Text fontSize="9pt">Share</Text>
+            </Flex>
+            <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>Share</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Text fontWeight="bold" mb="1rem">
+                    Share from here
+                  </Text>
+<div style={{ display: 'flex', gap: '10px' }}>
+                  <FacebookShareButton url="https://example.com">
+                    <FacebookIcon size={32} round />
+                  </FacebookShareButton>
+                  <TwitterShareButton url="https://example.com">
+                    <TwitterIcon size={32} round />
+                  </TwitterShareButton>
+                  <WhatsappShareButton url="https://example.com">
+                    <WhatsappIcon size={32} round />
+                  </WhatsappShareButton>
+                  <EmailShareButton url="https://example.com">
+                    <EmailIcon size={32} round />
+                  </EmailShareButton>
+                  <TelegramShareButton url="https://example.com">
+                    <TelegramIcon size={32} round />
+                  </TelegramShareButton>
+                  <LinkedinShareButton url="https://example.com">
+                    <LinkedinIcon size={32} round />
+                  </LinkedinShareButton>
+                  </div>
+                </ModalBody>
+
+                <ModalFooter></ModalFooter>
+              </ModalContent>
+            </Modal>
           </Flex>
 
           {/* icon 3 */}

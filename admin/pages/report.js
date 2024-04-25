@@ -14,7 +14,7 @@ async function fetchDataFromFirestore() {
   return data;
 }
 
-const report = () => {
+const Report = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
@@ -96,4 +96,4 @@ const report = () => {
   );
 };
 
-export default report;
+export default Report;

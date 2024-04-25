@@ -769,6 +769,10 @@ export default function Profile() {
     fetchUserData();
   }, [user, userData]); // Include userData in the dependency array
 
+
+
+  
+
   return (
     <>
       <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
