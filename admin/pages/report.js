@@ -52,44 +52,55 @@ const Report = () => {
     <Layout>
       <main>
         <div className="overflow-x-auto">
-          <table className="table-auto border-collapse border border-gray-800">
-            <thead>
-              <tr className="bg-gray-800 text-white">
-                <th className="px-4 py-2">ID</th>
-                <th className="px-4 py-2">Content</th>
-                <th className="px-4 py-2">Name</th>
-                <th className="px-4 py-2">Reason</th>
-                <th className="px-4 py-2">Related To</th>
-                <th className="px-4 py-2">Report</th>
-                <th className="px-4 py-2">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userData.map((report) => (
-                <tr key={report.id} className="text-center">
-                  <td className="border px-4 py-2">{report.id}</td>
-                  <td className="border px-4 py-2">{report.content}</td>
-                  <td className="border px-4 py-2">{report.name}</td>
-                  <td className="border px-4 py-2">{report.reason}</td>
-                  <td className="border px-4 py-2">{report.relatedto}</td>
-                  <td className="border px-4 py-2">{report.report}</td>
-                  <td className="border px-4 py-2">
-                    <button
-                      onClick={() => handleDelete(report.id)}
-                      style={{
-                        backgroundColor: "#EF4444", // Red background color
-                        borderColor: "#EF4444", // Red border color
-                        color: "#FFFFFF", // White text color
-                      }}
-                      className="py-2 px-4 rounded hover:bg-red-700 text-white font-bold"
-                    >
-                      Delete
-                    </button>
-                  </td>
+          <div className="min-w-full overflow-x-scroll">
+            <table className="table-auto border-collapse border border-gray-800">
+              <thead>
+                <tr className="bg-gray-800 text-white">
+                  <th className="px-2 py-1 text-sm">ID</th>
+                  <th className="px-2 py-1 text-sm">Report</th>
+                  <th className="px-2 py-1 text-sm">Related To</th>
+                  <th className="px-2 py-1 text-sm">Name</th>
+                  <th className="px-2 py-1 text-sm">Reason</th>
+                  <th className="px-2 py-1 text-sm">Post Link</th>
+                  <th className="px-2 py-1 text-sm">Contact Email</th>
+                  <th className="px-2 py-1 text-sm">Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {userData.map((report) => (
+                  <tr key={report.id} className="text-center">
+                    <td className="border px-2 py-1 text-sm">{report.id}</td>
+                    <td className="border px-2 py-1 text-sm">
+                      {report.report}
+                    </td>
+                    <td className="border px-2 py-1 text-sm">
+                      {report.relatedto}
+                    </td>
+                    <td className="border px-2 py-1 text-sm">{report.name}</td>
+                    <td className="border px-2 py-1 text-sm">
+                      {report.reason}
+                    </td>
+                    <td className="border px-2 py-1 text-sm">{report.link}</td>
+                    <td className="border px-2 py-1 text-sm">{report.email}</td>
+                    <td className="border px-2 py-1 text-sm">
+                      <button
+                        onClick={() => handleDelete(report.id)}
+                        style={{
+                          backgroundColor: "#EF4444", // Red background color
+                          borderColor: "#EF4444", // Red border color
+                          color: "#FFFFFF", // White text color
+                        }}
+                        className="py-2 px-4 rounded hover:bg-red-700 text-white font-bold "
+                        
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </Layout>

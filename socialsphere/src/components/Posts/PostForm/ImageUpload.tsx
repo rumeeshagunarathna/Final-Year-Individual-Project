@@ -17,7 +17,13 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   const selectedFileRef = useRef<HTMLInputElement>(null);
 
   return (
-    <Flex direction="column" justify="center" align="center" width="100%" height='400px'>
+    <Flex
+      direction="column"
+      justify="center"
+      align="center"
+      width="100%"
+      height="400px"
+    >
       {selectedFile ? (
         <>
           <Image src={selectedFile} maxWidth="400px" maxHeight="400px" />
@@ -54,7 +60,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           <input
             id="file-upload"
             type="file"
-            accept="image/x-png,image/gif,image/jpeg"
+            accept="image/x-png,image/gif,image/jpeg,video/mp4,video/webm,video/quicktime"
             hidden
             ref={selectedFileRef}
             onChange={onSelectImage}

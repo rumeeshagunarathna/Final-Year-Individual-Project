@@ -260,7 +260,9 @@ const menuItems = [
   { id: 2, label: "Manage Posts", icon: ArticleIcon, link: "/posts" },
   { id: 3, label: "Manage Users", icon: UsersIcon, link: "/users" },
   { id: 4, label: "Manage Comments", icon: VideosIcon, link: "/comments" },
-  { id: 5, label: "Report", icon: ArticleIcon, link: "/report" },
+  
+  { id: 5, label: "Manage Communities", icon: VideosIcon, link: "/communities" },
+  { id: 6, label: "Report", icon: ArticleIcon, link: "/report" },
 ];
 
 const Sidebar = () => {

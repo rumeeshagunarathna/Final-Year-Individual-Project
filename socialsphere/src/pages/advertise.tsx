@@ -260,46 +260,93 @@
 //   }
 // }
 
-"use client";
+
+import React, { useState, useEffect } from "react";
 import {
-  Box,
-  Flex,
-  Stack,
-  Heading,
-  Text,
-  Container,
-  Input,
   Button,
-  SimpleGrid,
+  Flex,
+  Icon,
+  Stack,
+  Text,
+  Image,
+  Box,
+  Center,
+  useColorModeValue,
   Avatar,
   AvatarGroup,
-  useBreakpointValue,
+  Container,
+  Heading,
   IconProps,
-  Icon,
-  Center,
+  Input,
+  SimpleGrid,
+  useBreakpointValue,
+  HStack,
+  Divider,
 } from "@chakra-ui/react";
-import { FcGoogle } from "react-icons/fc";
+import { IoIosStarHalf } from "react-icons/io";
+import { useRouter } from "next/router";
+import { collection, getDocs } from "firebase/firestore";
+import { firestore } from "../firebase/clientApp";
+import { BsArrowUpRight, BsHeartFill, BsHeart } from "react-icons/bs";
+
+interface Advertise {
+  id: string;
+  publish: string;
+  discription: string;
+  email: string;
+  cost: number;
+  phone: number;
+  imageUrl: string;
+}
+
+const AdvertiseonSS = () => {
+  const [advertises, setAdvertises] = useState<Advertise[]>([]);
+  
+
+  useEffect(() => {
+    const fetchAdvertises = async () => {
+      try {
+        const querySnapshot = await getDocs(
+          collection(firestore, "advertises")
+        );
+        const fetchedAdvertises = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Advertise[];
+        setAdvertises(fetchedAdvertises);
+      } catch (error) {
+        console.error("Error fetching advertises:", error);
+      }
+    };
+
+    fetchAdvertises();
+  }, []);
+
+
+
+
+
 
 const avatars = [
   {
-    name: "Ryan Florence",
-    url: "https://bit.ly/ryan-florence",
+    name: "R F",
+    url: "",
   },
   {
-    name: "Segun Adebayo",
-    url: "https://bit.ly/sage-adebayo",
+    name: "S A",
+    url: "",
   },
   {
-    name: "Kent Dodds",
-    url: "https://bit.ly/kent-c-dodds",
+    name: "K D",
+    url: "",
   },
   {
-    name: "Prosper Otemuyiwa",
-    url: "https://bit.ly/prosper-baba",
+    name: "P S",
+    url: "",
   },
   {
-    name: "Christian Nwamba",
-    url: "https://bit.ly/code-beast",
+    name: "C N",
+    url: "",
   },
 ];
 
@@ -325,13 +372,11 @@ const Blur = (props: IconProps) => {
   );
 };
 
-export default function advertise() {
 
-
+const [liked, setLiked] = useState(false);
+  
   return (
     <>
-      <div>
-        <main>
       <Box position={"relative"}>
         <Container
           as={SimpleGrid}
@@ -345,7 +390,7 @@ export default function advertise() {
               lineHeight={1.1}
               fontSize={{ base: "3xl", sm: "4xl", md: "5xl", lg: "6xl" }}
             >
-              Target your audience,{" "}
+              Target your audience{" "}
               <Text
                 as={"span"}
                 bgGradient="linear(to-r, red.400,pink.400)"
@@ -426,9 +471,9 @@ export default function advertise() {
               <Heading
                 color={"gray.800"}
                 lineHeight={1.1}
-                fontSize={{ base: "2xl", sm: "3xl", md: "4xl" }}
+                fontSize={{ base: "2xl", sm: "3xl", md: "3xl" }}
               >
-                Join our team
+                Advertise on SocialSphere
                 <Text
                   as={"span"}
                   bgGradient="linear(to-r, red.400,pink.400)"
@@ -444,68 +489,16 @@ export default function advertise() {
                 drive conversions
               </Text>
             </Stack>
-            <Center p={8}>
-              <Button
-                w={"full"}
-                maxW={"md"}
-                variant={"outline"}
-                leftIcon={<FcGoogle />}
-              >
-                <Center>
-                  <Text>Sign in with Google</Text>
-                </Center>
-              </Button>
-            </Center>
+            <Divider></Divider>
+            <Text mb={2} color={"gray.600"}>
+              Speak with an Ads Expert :
+            </Text>
+            <Text color={"gray.600"}>
+              Call +144 567 3769 (Mon-Fri · 9AM-5PM MST · SL only)
+            </Text>
+            <Divider></Divider>
             <Box as={"form"} mt={10}>
-              <Stack spacing={4}>
-                <Input
-                  placeholder="mybusiness"
-                  bg={"gray.100"}
-                  border={0}
-                  color={"gray.500"}
-                  _placeholder={{
-                    color: "gray.500",
-                  }}
-                />
-                <Input
-                  placeholder="email@mybusiness.com"
-                  bg={"gray.100"}
-                  border={0}
-                  color={"gray.500"}
-                  _placeholder={{
-                    color: "gray.500",
-                  }}
-                />
-                <Input
-                  placeholder="+94 123123123"
-                  bg={"gray.100"}
-                  border={0}
-                  color={"gray.500"}
-                  _placeholder={{
-                    color: "gray.500",
-                  }}
-                />
-                <Button
-                  fontFamily={"heading"}
-                  bg={"gray.200"}
-                  color={"gray.800"}
-                >
-                  Upload CV
-                </Button>
-              </Stack>
-              <Button
-                fontFamily={"heading"}
-                mt={8}
-                w={"full"}
-                bgGradient="linear(to-r, red.400,pink.400)"
-                color={"white"}
-                _hover={{
-                  bgGradient: "linear(to-r, red.400,pink.400)",
-                  boxShadow: "xl",
-                }}
-              >
-                Submit
-              </Button>
+              <Stack spacing={4}></Stack>
             </Box>
             form
           </Stack>
@@ -516,9 +509,126 @@ export default function advertise() {
           left={-10}
           style={{ filter: "blur(70px)" }}
         />
-          </Box>
-          </main>
-        </div>
+      </Box>
+
+      {/* <Flex direction="column" p="12px">
+        <Stack spacing={3}>
+          <Stack direction="column" spacing={6}>
+            {advertises.map((advertise) => (
+              <Flex key={advertise.id} rounded={"md"} overflow={"hidden"}>
+                <Image
+                  src={advertise.imageUrl}
+                  alt={`Image of ${advertise.id}`}
+                  boxSize="350px"
+                  objectFit="cover"
+                />
+              </Flex>
+            ))}
+          </Stack>
+        </Stack>
+      </Flex> */}
+
+      {/* <Flex direction="column" p="12px">
+        <Stack spacing={3}>
+          <Stack direction="column" spacing={6}>
+            {advertises.map((advertise) => (
+              <Flex key={advertise.id} rounded={"md"} overflow={"hidden"}>
+                <Image
+                  src={advertise.imageUrl}
+                  alt={`Image of ${advertise.id}`}
+                  boxSize="350px"
+                  
+                  objectFit="cover"
+                />
+                <Box p="6" bg="white" boxShadow="md" rounded="md">
+                  <Text fontSize="xl" fontWeight="bold">
+                    {advertise.publish}
+                  </Text>
+                  <Text fontSize="sm" mt="2">
+                    {advertise.discription}
+                  </Text>
+                  <Flex mt="3" alignItems="center">
+                    <Text fontSize="sm" fontWeight="bold">
+                      Cost:
+                    </Text>
+                    <Text ml="2" fontSize="sm">
+                      ${advertise.cost}
+                    </Text>
+                  </Flex>
+                  <Flex mt="2" alignItems="center">
+                    <Text fontSize="sm" fontWeight="bold">
+                      Contact:
+                    </Text>
+                    <Text ml="2" fontSize="sm">
+                      {advertise.phone}
+                    </Text>
+                  </Flex>
+                </Box>
+              </Flex>
+            ))}
+          </Stack>
+        </Stack>
+        </Flex> */}
+
+      <Container
+        maxW="container.xl"
+        py={10}
+        bg={useColorModeValue("gray.50", "gray.900")}
+        color={useColorModeValue("gray.700", "gray.200")}
+      >
+        <Heading mb={10} textAlign="center">
+          Advertisements
+        </Heading>
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={10}>
+          {advertises.map((advertise) => (
+            <Box
+              key={advertise.id}
+              rounded="md"
+              overflow="hidden"
+              boxShadow={useColorModeValue("md", "dark-lg")}
+            >
+              <Image
+                src={advertise.imageUrl}
+                alt={`Image of ${advertise.id}`}
+                w="100%"
+                h={80}
+                objectFit="fill"
+              />
+
+              <Box p={4}>
+                <Stack>
+                  <Text
+                    color={"blue.500"}
+                    textTransform={"uppercase"}
+                    fontWeight={800}
+                    fontSize={"sm"}
+                    letterSpacing={1.1}
+                  >
+                    Ad.
+                  </Text>
+                </Stack>
+                <Divider></Divider>
+                <Text fontSize="lg" fontWeight="bold" mb={2}>
+                  {advertise.publish}
+                </Text>
+                <Divider></Divider>
+                <Text fontSize="md" color="gray.600" mb={2}>
+                  Rs. {advertise.cost}
+                </Text>
+                <Text fontSize="md" color="gray.600" mb={2}>
+                  Call:{advertise.phone}
+                </Text>
+                <Divider></Divider>
+                <Text fontSize="md" color="gray.600" mb={2}>
+                  {advertise.discription}
+                </Text>
+              </Box>
+            </Box>
+          ))}
+        </SimpleGrid>
+      </Container>
     </>
   );
-}
+};
+
+export default AdvertiseonSS;

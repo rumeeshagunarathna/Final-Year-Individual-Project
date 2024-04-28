@@ -1,4 +1,5 @@
 
+
 import { initializeApp, getApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -23,18 +24,18 @@ const auth = getAuth(app);
 const storage = getStorage(app);
 //const analytics = getAnalytics(app);
 
-let analytics; // Declare analytics variable
+//let analytics; // Declare analytics variable
 
 // Check if the code is running in the browser
-if (typeof window !== "undefined") {
-  // Dynamically import Firebase Analytics only in the browser
-  import("firebase/analytics")
-    .then(({ getAnalytics }) => {
-      analytics = getAnalytics(app);
-    })
-    .catch((error) => {
-      console.error("Error initializing Firebase Analytics:", error);
-    });
-}
+// if (typeof window !== "undefined") {
+//   // Dynamically import Firebase Analytics only in the browser
+//   import("firebase/analytics")
+//     .then(({ getAnalytics }) => {
+//       analytics = getAnalytics(app);
+//     })
+//     .catch((error) => {
+//       console.error("Error initializing Firebase Analytics:", error);
+//     });
+// }
 
-export { app, auth, firestore, storage, analytics };
+export { app, auth, firestore, storage };

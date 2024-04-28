@@ -56,6 +56,7 @@ const users = () => {
                 <th className="px-4 py-2">UserID</th>
                 <th className="px-4 py-2">User Email</th>
                 <th className="px-4 py-2">UserName</th>
+                <th className="px-4 py-2">Action</th>
                 {/* <th className="px-4 py-2">Created At</th> */}
                 {/* <th className="px-4 py-2">Related To</th>
                 <th className="px-4 py-2">Report</th>

@@ -198,7 +198,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                 <input
                   id="file-upload"
                   type="file"
-                  accept="image/x-png,image/gif,image/jpeg"
+                  accept="image/x-png,image/gif,image/jpeg,video/mp4,video/webm,video/quicktime"
                   hidden
                   ref={selectedFileRef}
                   onChange={onSelectFile}

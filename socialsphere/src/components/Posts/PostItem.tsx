@@ -31,8 +31,10 @@ import {
 } from "react-icons/io5";
 import React, { useEffect, useState } from "react";
 import {
+  
   Alert,
   AlertIcon,
+  Box,
   Button,
   Flex,
   Icon,
@@ -56,6 +58,10 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { RiFlag2Line } from "react-icons/ri";
 import { title } from "process";
+
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type PostItemProps = {
   post: Post;
@@ -120,6 +126,16 @@ const PostItem: React.FC<PostItemProps> = ({
 
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const finalRef = React.useRef(null);
+
+
+  const [isToastOpen, setIsToastOpen] = useState(false);
+  const handleIconClick = () => {
+    // Open the toast
+    setIsToastOpen(true);
+    // Optionally, you can use the `toast` function to customize the toast message
+    toast("Saved!", { position: "top-center" });
+  };
   
   return (
     <Flex
@@ -260,7 +276,8 @@ const PostItem: React.FC<PostItemProps> = ({
             _hover={{ bg: "gray.100" }}
             cursor="pointer"
           >
-            <Icon as={IoBookmarkOutline} mr={2} />
+            <Icon as={IoBookmarkOutline} mr={2} onClick={handleIconClick} />
+            <ToastContainer />
             <Text fontSize="9pt">Save</Text>
           </Flex>
 
@@ -285,25 +302,25 @@ const PostItem: React.FC<PostItemProps> = ({
                   <Text fontWeight="bold" mb="1rem">
                     Share from here
                   </Text>
-<div style={{ display: 'flex', gap: '10px' }}>
-                  <FacebookShareButton url="https://example.com">
-                    <FacebookIcon size={32} round />
-                  </FacebookShareButton>
-                  <TwitterShareButton url="https://example.com">
-                    <TwitterIcon size={32} round />
-                  </TwitterShareButton>
-                  <WhatsappShareButton url="https://example.com">
-                    <WhatsappIcon size={32} round />
-                  </WhatsappShareButton>
-                  <EmailShareButton url="https://example.com">
-                    <EmailIcon size={32} round />
-                  </EmailShareButton>
-                  <TelegramShareButton url="https://example.com">
-                    <TelegramIcon size={32} round />
-                  </TelegramShareButton>
-                  <LinkedinShareButton url="https://example.com">
-                    <LinkedinIcon size={32} round />
-                  </LinkedinShareButton>
+                  <div style={{ display: "flex", gap: "10px" }}>
+                    <FacebookShareButton url="https://example.com">
+                      <FacebookIcon size={32} round />
+                    </FacebookShareButton>
+                    <TwitterShareButton url="https://example.com">
+                      <TwitterIcon size={32} round />
+                    </TwitterShareButton>
+                    <WhatsappShareButton url="https://example.com">
+                      <WhatsappIcon size={32} round />
+                    </WhatsappShareButton>
+                    <EmailShareButton url="https://example.com">
+                      <EmailIcon size={32} round />
+                    </EmailShareButton>
+                    <TelegramShareButton url="https://example.com">
+                      <TelegramIcon size={32} round />
+                    </TelegramShareButton>
+                    <LinkedinShareButton url="https://example.com">
+                      <LinkedinIcon size={32} round />
+                    </LinkedinShareButton>
                   </div>
                 </ModalBody>
 
@@ -353,11 +370,40 @@ const PostItem: React.FC<PostItemProps> = ({
             borderRadius={4}
             _hover={{ bg: "gray.100" }}
             cursor="pointer"
-            onClick={goToReportPage}
+            // onClick={goToReportPage}
+            onClick={onOpen}
           >
             <Icon as={RiFlag2Line} mr={2} />
             <Text fontSize="9pt">report</Text>
           </Flex>
+          <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent style={{ width: "1000px" }}>
+              <ModalHeader>Report</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text fontWeight="bold" mb="1rem">
+                  Thanks for looking out for yourself and your fellow members by
+                  reporting things that break the rules. Let us know what's
+                  happening, and we'll look into it.{" "}
+                </Text>
+
+                <Box
+                  ref={finalRef}
+                  tabIndex={-1}
+                  aria-label="Focus moved to this box"
+                >
+                  Go to the Report page to make a report/complaint.
+                </Box>
+              </ModalBody>
+
+              <ModalFooter>
+                <Button colorScheme="blue" onClick={goToReportPage}>
+                  Go to report page
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </Flex>
       </Flex>
     </Flex>

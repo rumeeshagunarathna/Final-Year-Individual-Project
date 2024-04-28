@@ -10,6 +10,12 @@ import {
 } from "react-icons/io5";
 import router from "next/router";
 
+import {
+  NovuProvider,
+  PopoverNotificationCenter,
+  NotificationBell,
+} from "@novu/notification-center";
+
 const Icons: React.FC = () => {
 
 const goToReportPage = () => {
@@ -103,6 +109,17 @@ const goToReportPage = () => {
         >
           <Icon as={GrAdd} fontSize={20} />
         </Flex> */}
+
+        <NovuProvider
+          subscriberId={"662bf2d1612e6f34a4f2c576"}
+          applicationIdentifier={"UPqPxbqDIEUx"}
+        >
+          <PopoverNotificationCenter colorScheme={"light"}>
+            {({ unseenCount }) => (
+              <NotificationBell unseenCount={unseenCount} />
+            )}
+          </PopoverNotificationCenter>
+        </NovuProvider>
       </>
     </Flex>
   );

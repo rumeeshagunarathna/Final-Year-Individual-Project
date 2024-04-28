@@ -1,5 +1,5 @@
 import { Timestamp } from "firebase/firestore";
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
 
 import { IoIosStarHalf } from "react-icons/io";
@@ -8,7 +8,7 @@ import {
   IoArrowDownCircleOutline,
   IoArrowUpCircleOutline,
 } from "react-icons/io5";
-import { Box, Flex, Icon, Spinner, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Spinner, Stack, Text, Textarea } from "@chakra-ui/react";
 import { RiFlag2Line } from "react-icons/ri";
 import router from "next/router";
 
@@ -42,6 +42,23 @@ const CummentItem: React.FC<CummentItemProps> = ({
     router.push("/report"); // Navigate to the report page
   };
   
+
+  const [expanded, setExpanded] = useState(false);
+  const [replyText, setReplyText] = useState("");
+
+  const toggleExpand = () => {
+    setExpanded(!expanded);
+  };
+  const handleReply = () => {
+    // You can handle the reply action here, for now, let's just log the reply text
+    console.log("Reply text:", replyText);
+  };
+
+  const handleDelete = () => {
+    alert("Delete button clicked!");
+    // You can add functionality to delete the comment here
+  };
+    
   return (
     <Flex>
       <Box mr={2}>
@@ -88,9 +105,15 @@ const CummentItem: React.FC<CummentItemProps> = ({
 
           {userId === comment.creatorId && (
             <>
-              <Text fontSize="9pt" _hover={{ color: "blue.500" }}>
+              <Text
+                fontSize="9pt"
+                _hover={{ color: "blue.500" }}
+                cursor="pointer"
+                onClick={toggleExpand}
+              >
                 Reply
               </Text>
+
               <Text
                 fontSize="9pt"
                 _hover={{ color: "blue.500" }}
@@ -101,8 +124,35 @@ const CummentItem: React.FC<CummentItemProps> = ({
             </>
           )}
         </Stack>
+        {expanded && (
+          <Flex direction="column">
+            <Textarea
+              value={replyText}
+              onChange={(e) => setReplyText(e.target.value)}
+              placeholder="Type your reply..."
+              size="sm"
+              resize="vertical"
+              mb={2}
+              fontSize="10pt"
+              height="100px"
+              width="500px"
+              borderRadius={4}
+              _placeholder={{ color: "gray.500" }}
+              _focus={{
+                outline: "none",
+                bg: "white",
+                border: "1px solid",
+                borderColor: "black",
+              }}
+            />
+            <Button onClick={handleReply} height="26px" width="60px">
+              Send
+            </Button>
+          </Flex>
+        )}
       </Stack>
     </Flex>
   );
 };
 export default CummentItem;
+

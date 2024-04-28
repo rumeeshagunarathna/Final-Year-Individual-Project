@@ -851,7 +851,7 @@ export default function Profile() {
                 <Text color={"#E53E3E"}>Forgot password?</Text>
               </Stack>
               <Button colorScheme={"blue"} variant={"solid"}>
-                Delete Account
+                Save Changes
               </Button>
             </Stack>
           </Stack>
