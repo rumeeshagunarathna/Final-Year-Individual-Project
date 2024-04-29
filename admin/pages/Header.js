@@ -14,7 +14,7 @@ const Header = ({ setIsAdding, setIsAuthenticated }) => {
           }}
           onClick={() => setIsAdding(true)}
         >
-          Add +
+          Add Advertise +
         </button>
         {/* <Logout setIsAuthenticated={setIsAuthenticated} /> */}
       </div>
