@@ -66,7 +66,7 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 // import { GiCheckedShield } from "react-icons/gi";
 import { FcRules } from "react-icons/fc";
 
-export default function SimpleAccordion() {
+export default function Communityrules() {
   return (
     <Flex
       direction="column"
@@ -93,6 +93,7 @@ export default function SimpleAccordion() {
           {/* 1 */}
           <AccordionItem>
             <AccordionButton
+            
               display="flex"
               alignItems="center"
               justifyContent="space-between"
