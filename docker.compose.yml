@@ -18,7 +18,7 @@ services:
       - my_network
 
   homepage:
-    image: rumeeshagunarathna/social-sphere-homepage:latest
+    image: rumeeshagunarathna/social-sphere-Homepage:latest
     container_name: homepage-container
     ports:
       - "3003:3000"
