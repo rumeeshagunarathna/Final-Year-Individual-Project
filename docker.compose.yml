@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  socialsphere:
+    image: rumeeshagunarathna/social-sphere-socialsphere:latest
+    container_name: socialsphere-container
+    ports:
+      - "3001:3000"
+    networks:
+      - my_network
+
+  admindashboard:
+    image: rumeeshagunarathna/social-sphere-admindashboard:latest
+    container_name: admindashboard-container
+    ports:
+      - "3002:3000"
+    networks:
+      - my_network
+
+  homepage:
+    image: rumeeshagunarathna/social-sphere-homepage:latest
+    container_name: homepage-container
+    ports:
+      - "3003:3000"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
