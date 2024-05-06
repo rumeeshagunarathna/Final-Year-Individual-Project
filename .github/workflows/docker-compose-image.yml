@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "14.x"  # Adjust node version as needed
+          node-version: "20.11.0"  # Adjust node version as needed
 
       - name: Install dependencies - Admin
         run: |
