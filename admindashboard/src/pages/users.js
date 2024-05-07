@@ -1,11 +1,11 @@
-"use client";
+
 import { db } from "../app/firebaseConfig";
 import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import Layout from "../components/Layout";
 
-async function fetchDataFromFirestore() {
-  const querySnapshot = await getDocs(collection(db, "users"));
+async function fetchDataFromFirestore(collectionName) {
+  const querySnapshot = await getDocs(collection(db, collectionName));
 
   const data = [];
   querySnapshot.forEach((doc) => {
@@ -14,12 +14,12 @@ async function fetchDataFromFirestore() {
   return data;
 }
 
-const users = () => {
+const Users = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetchDataFromFirestore();
+      const data = await fetchDataFromFirestore("users");
       setUserData(data);
     }
     fetchData();
@@ -95,4 +95,4 @@ const users = () => {
   );
 };
 
-export default users;
+export default Users;
