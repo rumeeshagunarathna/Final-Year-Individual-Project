@@ -54,7 +54,7 @@ jobs:
         working-directory: ./Homepage
 
       - name: Login to DockerHub Registry
-        run: echo ${{ secrets.DOCKER_IMAGE_PASSWORD }} | docker login -u ${{ secrets.DOCKER_IMAGE_USERNAME }} --password-Hellowsidny@123
+        run: echo ${{ secrets.DOCKER_IMAGE_USERNAME }} | docker login -u ${{ secrets.DOCKER_IMAGE_PASSWORD }} --password-stdin
 
       - name: Build and Push
         run: |
