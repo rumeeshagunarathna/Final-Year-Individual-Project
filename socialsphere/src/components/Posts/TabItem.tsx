@@ -8,7 +8,7 @@ type TabItemProps = {
       setSelectedTab: (value: string) => void;
 };
 
-const TabItem: React.FC<TabItemProps> = ({ item, selected, setSelectedTab }) => {
+const TabItemComponent: React.FC<TabItemProps> = ({ item, selected, setSelectedTab }) => {
   return (
     <Flex
       justify="center"
@@ -31,4 +31,4 @@ const TabItem: React.FC<TabItemProps> = ({ item, selected, setSelectedTab }) => 
     </Flex>
   );
 };
-export default TabItem;
+export default TabItemComponent;

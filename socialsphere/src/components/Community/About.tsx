@@ -143,7 +143,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
             )}
           </Flex>
 
-          <Link href={`/s/${router.query.community}/submit`}>
+          {/* <Link href={`/s/${router.query.community}/submit`}>
             <Button
               variant="outline"
               mt={3}
@@ -155,7 +155,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
             >
               Create Post
             </Button>
-          </Link>
+          </Link> */}
 
           {user?.uid === communityData?.creatorId && (
             <>

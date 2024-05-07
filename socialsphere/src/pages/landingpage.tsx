@@ -10,6 +10,8 @@ import {
   Icon,
   IconProps,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Illustration = (props: IconProps) => {
   return (
@@ -834,56 +836,58 @@ const Illustration = (props: IconProps) => {
 };
 
 export default function landingpage() {
+
+
+
   return (
     <>
       <div>
-        
-    <Container maxW={"5xl"}>
-      <Stack
-        textAlign={"center"}
-        align={"center"}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
-      >
-        <Heading
-          fontWeight={600}
-          fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
-          lineHeight={"110%"}
-        >
-          Welcome to{" "}
-          <Text as={"span"} color={"orange.400"}>
-            SocialSphere
-          </Text>
-        </Heading>
-        <Text color={"gray.500"} maxW={"3xl"}>
-          Never miss a meeting. Never be late for one too. Keep track of your
-          meetings and receive smart reminders in appropriate times. Read your
-          smart “Daily Agenda” every morning.
-        </Text>
-        <Stack spacing={6} direction={"row"}>
-          <Link href="/home" passHref>
-          <Button
-            rounded={"full"}
-            px={6}
-            colorScheme={"orange"}
-            bg={"orange.400"}
-            _hover={{ bg: "orange.500" }}
+        <Container maxW={"5xl"}>
+          <Stack
+            textAlign={"center"}
+            align={"center"}
+            spacing={{ base: 8, md: 10 }}
+            py={{ base: 20, md: 28 }}
           >
-            Get started
-          </Button>
-          </Link>
-        </Stack>
-        <Flex w={"full"}>
-          <Illustration
-            height={{ sm: "24rem", lg: "28rem" }}
-            mt={{ base: 12, sm: 16 }}
-          />
-        </Flex>
-      </Stack>
+            <Heading
+              fontWeight={600}
+              fontSize={{ base: "3xl", sm: "4xl", md: "6xl" }}
+              lineHeight={"110%"}
+            >
+              Welcome to{" "}
+              <Text as={"span"} color={"orange.400"}>
+                SocialSphere
+              </Text>
+            </Heading>
+            <Text color={"gray.500"} maxW={"3xl"}>
+              SocialSphere is home to communities, endless conversation, and
+              authentic human connection. Whether you're into breaking news,
+              sports, TV fan theories, or a never-ending stream of the
+              internet's cutest animals, there's a community for you.
+            </Text>
+            <Stack spacing={6} direction={"row"}>
+              <Link href="/TermsOfServise" passHref>
+                <Button
+                  rounded={"full"}
+                  px={6}
+                  colorScheme={"orange"}
+                  bg={"orange.400"}
+                  _hover={{ bg: "orange.500" }}
+                 
+                >
+                  Get started
+                </Button>
+              </Link>
+            </Stack>
+            <Flex w={"full"}>
+              <Illustration
+                height={{ sm: "24rem", lg: "28rem" }}
+                mt={{ base: 12, sm: 16 }}
+              />
+            </Flex>
+          </Stack>
         </Container>
-        
       </div>
-</>
-    
+    </>
   );
 }

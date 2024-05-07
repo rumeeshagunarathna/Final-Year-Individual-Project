@@ -125,7 +125,22 @@ const PostItem: React.FC<PostItemProps> = ({
   };
 
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  //const { isOpen, onOpen, onClose } = useDisclosure();
+
+const {
+  isOpen: isShareModalOpen,
+  onOpen: onShareModalOpen,
+  onClose: onShareModalClose,
+} = useDisclosure();
+const {
+  isOpen: isReportModalOpen,
+  onOpen: onReportModalOpen,
+  onClose: onReportModalClose,
+} = useDisclosure();
+
+
+
+
   const finalRef = React.useRef(null);
 
 
@@ -289,11 +304,15 @@ const PostItem: React.FC<PostItemProps> = ({
             _hover={{ bg: "gray.100" }}
             cursor="pointer"
           >
-            <Flex onClick={onOpen}>
+            <Flex onClick={onShareModalOpen}>
               <Icon as={IoArrowRedoOutline} mr={2} />
               <Text fontSize="9pt">Share</Text>
             </Flex>
-            <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+            <Modal
+              blockScrollOnMount={false}
+              isOpen={isShareModalOpen}
+              onClose={onShareModalClose}
+            >
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>Share</ModalHeader>
@@ -371,12 +390,16 @@ const PostItem: React.FC<PostItemProps> = ({
             _hover={{ bg: "gray.100" }}
             cursor="pointer"
             // onClick={goToReportPage}
-            onClick={onOpen}
+            onClick={onReportModalOpen}
           >
             <Icon as={RiFlag2Line} mr={2} />
             <Text fontSize="9pt">report</Text>
           </Flex>
-          <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+          <Modal
+            blockScrollOnMount={false}
+            isOpen={isReportModalOpen}
+            onClose={onReportModalClose}
+          >
             <ModalOverlay />
             <ModalContent style={{ width: "1000px" }}>
               <ModalHeader>Report</ModalHeader>

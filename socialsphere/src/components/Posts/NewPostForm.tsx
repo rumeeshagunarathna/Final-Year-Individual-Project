@@ -29,7 +29,7 @@ import { BsLink45Deg, BsMic } from "react-icons/bs";
 import { IoDocumentText, IoImageOutline } from "react-icons/io5";
 
 import { useRecoilState, useSetRecoilState } from "recoil";
-import TabItem from "./TabItem";
+import TabItem  from "./TabItem";
 import TextInputs from "./PostForm/TextInputs";
 import ImageUpload from "./PostForm/ImageUpload";
 import { Post } from "../../atoms/postsAtom";

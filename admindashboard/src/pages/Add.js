@@ -69,7 +69,7 @@ const Add = ({ advertises, setAdvertises, setIsAdding, getAdvertises }) => {
   return (
     <div className="small-container">
       <form onSubmit={handleAdd}>
-        <h1>Add New </h1>
+        <h1>Add New Advertisement</h1>
         <label htmlFor="publish">Ad.</label>
         <input
           id="publish"
