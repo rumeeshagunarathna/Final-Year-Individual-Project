@@ -650,17 +650,16 @@ import {
   Image,
   Box,
   Center,
-  useColorModeValue,
   Avatar,
   AvatarGroup,
   Container,
   Heading,
-  IconProps,
   Input,
   SimpleGrid,
-  useBreakpointValue,
   HStack,
   Divider,
+  useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { IoIosStarHalf } from "react-icons/io";
 import { useRouter } from "next/router";
@@ -678,7 +677,7 @@ interface Advertise {
   imageUrl: string;
 }
 
-const AdvertiseonSS = () => {
+const Advertise = () => {
   const [advertises, setAdvertises] = useState<Advertise[]>([]);
 
   useEffect(() => {
@@ -723,8 +722,19 @@ const AdvertiseonSS = () => {
     },
   ];
 
-  const Blur = (props: IconProps) => {
-    // Call useColorModeValue directly within the component function
+  const [liked, setLiked] = useState(false);
+
+  const Blur = ({
+    position,
+    top,
+    left,
+    style,
+  }: {
+    position: string;
+    top: number;
+    left: number;
+    style: React.CSSProperties;
+  }) => {
     const bgColor = useColorModeValue("#F56565", "#4299E1");
 
     return (
@@ -735,9 +745,7 @@ const AdvertiseonSS = () => {
         viewBox="0 0 528 560"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        {...props}
       >
-        {/* Use bgColor variable for fill color */}
         <circle cx="71" cy="61" r="111" fill={bgColor} />
         <circle cx="244" cy="106" r="139" fill="#ED64A6" />
         <circle cy="291" r="139" fill="#ED64A6" />
@@ -749,7 +757,7 @@ const AdvertiseonSS = () => {
     );
   };
 
-  const [liked, setLiked] = useState(false);
+ 
 
   return (
     <>
@@ -947,4 +955,4 @@ const AdvertiseonSS = () => {
   );
 };
 
-export default AdvertiseonSS;
+export default Advertise;
