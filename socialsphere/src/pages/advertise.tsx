@@ -258,7 +258,7 @@ const Advertise = () => {
               key={advertise.id}
               rounded="md"
               overflow="hidden"
-              boxShadow={useColorModeValue("md", "dark-lg")}
+              boxShadow="0 4px 6px rgba(0, 0, 0, 0.4)"
             >
               <Image
                 src={advertise.imageUrl}
