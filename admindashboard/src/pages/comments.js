@@ -24,6 +24,7 @@ const comments = () => {
     }
     fetchData();
   }, []);
+  
 
   const handleDelete = async (id) => {
     try {
