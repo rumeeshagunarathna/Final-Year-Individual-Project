@@ -57,7 +57,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 // Importing the Context directly instead of from "../pages/context"
-import { Context } from "../pages/context";
+import { Context } from "../components/Context";
 
 const ChatEngine = dynamic(() =>
   import("react-chat-engine").then((module) => module.ChatEngine)
