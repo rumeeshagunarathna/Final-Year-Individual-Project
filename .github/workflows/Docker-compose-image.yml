@@ -54,13 +54,13 @@ jobs:
         working-directory: ./Homepage
 
       - name: Login to DockerHub Registry
-        run: echo ${{ secrets.DOCKER_IMAGE_USERNAME }} | docker login -u ${{ secrets.DOCKER_IMAGE_PASSWORD }} --password-stdin
+        run: echo ${{ secrets.DOCKER_IMAGE_PASSWORD }} | docker login -u ${{ secrets.DOCKER_IMAGE_USERNAME }} --password-stdin
 
       - name: Build and Push
         run: |
           docker-compose -f docker-compose.yml build
 
-          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/admindashboard:latest
-          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/socialsphere:latest
-          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/Homepage:latest
+          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-admindashboard:latest
+          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-socialsphere:latest
+          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-Homepage:latest
 
