@@ -4,23 +4,22 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection, deleteDoc, doc } from "firebase/firestore";
 import Layout from "../components/Layout";
 
-async function fetchDataFromFirestore() {
-  const querySnapshot = await getDocs(collection(db, "comments"));
+async function fetchDataFromFirestore(collectionName) {
+  const querySnapshot = await getDocs(collection(db, collectionName));
 
   const data = [];
   querySnapshot.forEach((doc) => {
     data.push({ id: doc.id, ...doc.data() });
   });
   return data;
-  
 }
 
-const comments = () => {
+const Comments = () => {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetchDataFromFirestore();
+      const data = await fetchDataFromFirestore("comments");
       setUserData(data);
     }
     fetchData();
@@ -99,4 +98,4 @@ const comments = () => {
   );
 };
 
-export default comments;
+export default Comments;
