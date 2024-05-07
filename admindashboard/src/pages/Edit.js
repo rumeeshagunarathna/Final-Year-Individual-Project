@@ -150,7 +150,7 @@
 
 
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../app/firebaseConfig";
@@ -164,8 +164,6 @@ const Edit = ({
   setIsEditing,
   getAdvertises,
 }) => {
-  const id = selectedAdvertise.id;
-
   const [publish, setPublish] = useState("");
   const [discription, setDiscription] = useState("");
   const [email, setEmail] = useState("");
@@ -173,13 +171,14 @@ const Edit = ({
   const [phone, setPhone] = useState("");
   const [image, setImage] = useState(null);
 
-  // Set initial state values when component mounts
-  React.useEffect(() => {
-    setPublish(selectedAdvertise.publish);
-    setDiscription(selectedAdvertise.discription);
-    setEmail(selectedAdvertise.email);
-    setCost(selectedAdvertise.cost);
-    setPhone(selectedAdvertise.phone);
+  useEffect(() => {
+    if (selectedAdvertise) {
+      setPublish(selectedAdvertise.publish || "");
+      setDiscription(selectedAdvertise.discription || "");
+      setEmail(selectedAdvertise.email || "");
+      setCost(selectedAdvertise.cost || "");
+      setPhone(selectedAdvertise.phone || "");
+    }
   }, [selectedAdvertise]);
 
   const handleUpdate = async (e) => {
@@ -195,7 +194,7 @@ const Edit = ({
     }
 
     try {
-      let imageUrl = selectedAdvertise.imageUrl;
+      let imageUrl = selectedAdvertise.imageUrl || "";
 
       if (image) {
         // Upload new image to Firestore Storage
@@ -207,7 +206,7 @@ const Edit = ({
       }
 
       const updatedAdvertise = {
-        id,
+        id: selectedAdvertise.id,
         publish,
         discription,
         email,
@@ -216,11 +215,14 @@ const Edit = ({
         imageUrl,
       };
 
-      await setDoc(doc(db, "advertises", id), updatedAdvertise);
+      await setDoc(
+        doc(db, "advertises", selectedAdvertise.id),
+        updatedAdvertise
+      );
 
       // Update the advertise in the local state
       const updatedAdvertises = advertises.map((advertise) =>
-        advertise.id === id ? updatedAdvertise : advertise
+        advertise.id === selectedAdvertise.id ? updatedAdvertise : advertise
       );
 
       setAdvertises(updatedAdvertises);
@@ -240,70 +242,68 @@ const Edit = ({
   };
 
   return (
-    <>
-      <div className="small-container">
-        <form onSubmit={handleUpdate}>
-          <h1>Edit Advertise</h1>
-          <label htmlFor="publish">Ad.</label>
+    <div className="small-container">
+      <form onSubmit={handleUpdate}>
+        <h1>Edit Advertise</h1>
+        <label htmlFor="publish">Ad.</label>
+        <input
+          id="publish"
+          type="text"
+          name="publish"
+          value={publish}
+          onChange={(e) => setPublish(e.target.value)}
+        />
+        <label htmlFor="discription">Discription</label>
+        <input
+          id="discription"
+          type="text"
+          name="discription"
+          value={discription}
+          onChange={(e) => setDiscription(e.target.value)}
+        />
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="cost">Cost ($)</label>
+        <input
+          id="cost"
+          type="number"
+          name="cost"
+          value={cost}
+          onChange={(e) => setCost(e.target.value)}
+        />
+        <label htmlFor="phone">Phone</label>
+        <input
+          id="phone"
+          type="number"
+          name="phone"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
+        <label htmlFor="image">Image</label>
+        <input
+          id="image"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImage(e.target.files[0])}
+        />
+        <div style={{ marginTop: "30px" }}>
+          <input type="submit" value="Update" />
           <input
-            id="publish"
-            type="text"
-            name="publish"
-            value={publish}
-            onChange={(e) => setPublish(e.target.value)}
+            style={{ marginLeft: "12px" }}
+            className="muted-button"
+            type="button"
+            value="Cancel"
+            onClick={() => setIsEditing(false)}
           />
-          <label htmlFor="discription">Discription</label>
-          <input
-            id="discription"
-            type="text"
-            name="discription"
-            value={discription}
-            onChange={(e) => setDiscription(e.target.value)}
-          />
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="cost">Cost ($)</label>
-          <input
-            id="cost"
-            type="number"
-            name="cost"
-            value={cost}
-            onChange={(e) => setCost(e.target.value)}
-          />
-          <label htmlFor="phone">Phone</label>
-          <input
-            id="phone"
-            type="number"
-            name="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          <label htmlFor="image">Image</label>
-          <input
-            id="image"
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-          />
-          <div style={{ marginTop: "30px" }}>
-            <input type="submit" value="Update" />
-            <input
-              style={{ marginLeft: "12px" }}
-              className="muted-button"
-              type="button"
-              value="Cancel"
-              onClick={() => setIsEditing(false)}
-            />
-          </div>
-        </form>
-      </div>
-    </>
+        </div>
+      </form>
+    </div>
   );
 };
 
