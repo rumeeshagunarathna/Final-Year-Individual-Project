@@ -483,7 +483,7 @@ const [liked, setLiked] = useState(false);
                 </Text>
               </Heading>
               <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                Reach customers where they’re most passionate and
+                Reach customers where they&aposre most passionate and
                 engaged,Increase brand awareness and drive traffic, conversions,
                 or app installs & Leverage insights to optimize campaigns and
                 drive conversions

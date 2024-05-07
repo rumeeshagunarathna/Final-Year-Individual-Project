@@ -676,8 +676,8 @@ const toast = useToast();
           <Stack spacing={4}>
             <FormLabel mb={2} fontWeight={500}>
               Thanks for looking out for yourself and your fellow members by
-              reporting things that break the rules. Let us know what's
-              happening, and we'll look into it.
+              reporting things that break the rules. Let us know what&aposs
+              happening, and we&aposll look into it.
             </FormLabel>
             <Divider />
             <FormLabel>I want to Report</FormLabel>
@@ -710,7 +710,7 @@ const toast = useToast();
                 isChecked={checkedItems[1]}
                 onChange={() => onCheckboxChange(1)}
               >
-                Someone else's
+                Someone else&aposs
               </Checkbox>
               <Divider />
             </Stack>
@@ -824,8 +824,8 @@ const toast = useToast();
                     value={report.email} // Bind value to email field in report
                   />
                   <FormHelperText>
-                    Thank you for your report.We'll take a careful look at this
-                    content.
+                    Thank you for your report.We&aposll take a careful look at
+                    this content.
                   </FormHelperText>
                 </FormControl>
               </SimpleGrid>
@@ -835,8 +835,8 @@ const toast = useToast();
               </FormLabel>
               <FormControl display="flex" alignItems="center" mt={2} mb={2}>
                 <FormLabel htmlFor="email-alerts" mb="2" mt={2}>
-                  You won't be able to send direct messages or chat requests to
-                  each other.
+                  You won&apost be able to send direct messages or chat requests
+                  to each other.
                 </FormLabel>
                 <Switch id="email-alerts" />
               </FormControl>
@@ -854,15 +854,15 @@ const toast = useToast();
                 width="20%"
                 colorScheme="teal"
                 type="submit"
-                
                 onClick={() => {
                   toast({
-                    title: 'Report submited.',
-                    description: "Thank you for your report.We'll take a careful look at this",
-                    status: 'success',
+                    title: "Report submited.",
+                    description:
+                      "Thank you for your report.We'll take a careful look at this",
+                    status: "success",
                     duration: 3000,
                     isClosable: true,
-                  })
+                  });
                 }}
               >
                 Submit
