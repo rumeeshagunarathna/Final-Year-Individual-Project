@@ -55,10 +55,12 @@ jobs:
 
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKER_IMAGE_PASSWORD }} | docker login -u ${{ secrets.DOCKER_IMAGE_USERNAME }} --password-stdin
+
+      - name: Change to directory containing docker-compose.yml
+        run: cd /Final-Year-Individual-Project/docker-compose.yml
         
       - name: Build and Push
         run: |
-        
           docker-compose build
 
           docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-admindashboard:1.0.0
