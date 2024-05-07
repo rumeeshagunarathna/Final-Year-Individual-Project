@@ -1,27 +1,36 @@
 version: "3.8"
 
 services:
-  socialsphere:
-    image: rumeeshagunarathna/social-sphere-socialsphere:latest
-    container_name: socialsphere-container
-    ports:
-      - "3001:3000"
-    networks:
-      - my_network
-
   admindashboard:
-    image: rumeeshagunarathna/social-sphere-admindashboard:latest
-    container_name: admindashboard-container
+    image: rumeeshagunarathna/social-sphere-admindashboard:1.0.0
+    build:
+      context: ./admindashboard
+      dockerfile: Dockerfile
     ports:
       - "3002:3000"
+    container_name: admindashboard-container
     networks:
       - my_network
 
-  homepage:
-    image: rumeeshagunarathna/social-sphere-Homepage:latest
-    container_name: homepage-container
+  socialsphere:
+    image: rumeeshagunarathna/social-sphere-socialsphere:1.0.0
+    build:
+      context: ./socialsphere
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    container_name: socialsphere-container
+    networks:
+      - my_network
+
+  Homepage:
+    image: rumeeshagunarathna/social-sphere-Homepage:1.0.0
+    build:
+      context: ./Homepage
+      dockerfile: Dockerfile
     ports:
       - "3003:3000"
+    container_name: Homepage-container
     networks:
       - my_network
 

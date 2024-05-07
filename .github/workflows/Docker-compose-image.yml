@@ -60,7 +60,7 @@ jobs:
         run: |
           docker-compose -f docker-compose.yml build
 
-          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-admindashboard:latest
-          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-socialsphere:latest
-          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-Homepage:latest
+          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-admindashboard:1.0.0
+          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-socialsphere:1.0.0
+          docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-Homepage:1.0.0
 
