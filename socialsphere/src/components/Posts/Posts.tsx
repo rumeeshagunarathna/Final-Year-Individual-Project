@@ -26,7 +26,7 @@ const Posts: React.FC<PostsProps> = ({ communityData }) => {
   } = usePosts();
   const getPosts = async () => {
     try {
-      console.log("Community ID in getPosts:", communityData.id); // Log the community ID here
+      console.log('Community ID in getPosts:', communityData.id); // Log the community ID here
 
       setLoading(true);
       //get posts for this communityy
@@ -43,9 +43,9 @@ const Posts: React.FC<PostsProps> = ({ communityData }) => {
         ...prev,
         posts: posts as Post[],
       }));
-      console.log("posts", posts);
+      console.log('posts', posts);
     } catch (error: any) {
-      console.log("getPosts error", error.message);
+      console.log('getPosts error', error.message);
     }
     setLoading(false);
   };
