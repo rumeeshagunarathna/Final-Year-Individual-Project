@@ -33,9 +33,7 @@ const HomePage = () => {
         Loading...
       </Heading>
       <Link href="/home">
-        <Button mt={8} colorScheme="blue">
-          Go to Home Page
-        </Button>
+        
       </Link>
     </Box>
   );

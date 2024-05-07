@@ -12,6 +12,7 @@ async function fetchDataFromFirestore() {
     data.push({ id: doc.id, ...doc.data() });
   });
   return data;
+  
 }
 
 const comments = () => {
