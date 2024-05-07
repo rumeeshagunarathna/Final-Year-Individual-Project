@@ -267,23 +267,18 @@ import {
   Image,
   Box,
   Center,
-  useColorModeValue,
   Avatar,
   AvatarGroup,
   Container,
   Heading,
   IconProps,
-  Input,
   SimpleGrid,
-  useBreakpointValue, // Move this import inside the function component
-  HStack,
   Divider,
+  useColorModeValue, // Moved inside the component
 } from "@chakra-ui/react";
 import { IoIosStarHalf } from "react-icons/io";
-import { useRouter } from "next/router";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "../firebase/clientApp";
-import { BsArrowUpRight, BsHeartFill, BsHeart } from "react-icons/bs";
 
 interface Advertise {
   id: string;
@@ -344,8 +339,8 @@ const AdvertiseonSS = () => {
   const Blur = (props: IconProps) => {
     return (
       <Icon
-        width={useBreakpointValue({ base: "100%", md: "40vw", lg: "30vw" })}
-        zIndex={useBreakpointValue({ base: -1, md: -1, lg: 0 })}
+        width={{ base: "100%", md: "40vw", lg: "30vw" }}
+        zIndex={{ base: -1, md: -1, lg: 0 }}
         height="560px"
         viewBox="0 0 528 560"
         fill="none"
@@ -362,7 +357,6 @@ const AdvertiseonSS = () => {
       </Icon>
     );
   };
-  
 
   return (
     <>
@@ -397,7 +391,7 @@ const AdvertiseonSS = () => {
                     name={avatar.name}
                     src={avatar.url}
                     // eslint-disable-next-line react-hooks/rules-of-hooks
-                    size={useBreakpointValue({ base: "md", md: "lg" })}
+                    size={{ base: "md", md: "lg" }}
                     position={"relative"}
                     zIndex={2}
                     _before={{
@@ -429,8 +423,8 @@ const AdvertiseonSS = () => {
                 bg={"gray.800"}
                 color={"white"}
                 rounded={"full"}
-                minWidth={useBreakpointValue({ base: "44px", md: "60px" })}
-                minHeight={useBreakpointValue({ base: "44px", md: "60px" })}
+                minWidth={{ base: "44px", md: "60px" }}
+                minHeight={{ base: "44px", md: "60px" }}
                 position={"relative"}
                 _before={{
                   content: '""',
