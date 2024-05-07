@@ -257,6 +257,10 @@
 //   }
 // }
 
+
+
+
+
 import React, { useState, useEffect } from "react";
 import {
   Button,
@@ -274,7 +278,7 @@ import {
   IconProps,
   SimpleGrid,
   Divider,
-  useColorModeValue, // Moved inside the component
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { IoIosStarHalf } from "react-icons/io";
 import { collection, getDocs } from "firebase/firestore";
@@ -358,6 +362,10 @@ const AdvertiseonSS = () => {
     );
   };
 
+  // Moved useColorModeValue inside the component
+  const bgColor = useColorModeValue("gray.50", "gray.900");
+  const textColor = useColorModeValue("gray.700", "gray.200");
+
   return (
     <>
       <Box position={"relative"}>
@@ -390,7 +398,6 @@ const AdvertiseonSS = () => {
                     key={avatar.name}
                     name={avatar.name}
                     src={avatar.url}
-                    // eslint-disable-next-line react-hooks/rules-of-hooks
                     size={{ base: "md", md: "lg" }}
                     position={"relative"}
                     zIndex={2}
@@ -466,7 +473,7 @@ const AdvertiseonSS = () => {
                 </Text>
               </Heading>
               <Text color={"gray.500"} fontSize={{ base: "sm", sm: "md" }}>
-                Reach customers where they’re most passionate and
+                Reach customers where they&apos;re most passionate and
                 engaged,Increase brand awareness and drive traffic, conversions,
                 or app installs & Leverage insights to optimize campaigns and
                 drive conversions
@@ -497,8 +504,8 @@ const AdvertiseonSS = () => {
       <Container
         maxW="container.xl"
         py={10}
-        bg={useColorModeValue("gray.50", "gray.900")}
-        color={useColorModeValue("gray.700", "gray.200")}
+        bg={bgColor} // Use bgColor variable
+        color={textColor} // Use textColor variable
       >
         <Heading mb={10} textAlign="center">
           Advertisements
