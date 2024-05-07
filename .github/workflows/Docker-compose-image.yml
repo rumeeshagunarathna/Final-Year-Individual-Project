@@ -58,7 +58,7 @@ jobs:
         
       - name: Build and Push
         run: |
-          cd ./docker-compose.yml
+        
           docker-compose build
 
           docker push ${{ secrets.DOCKER_IMAGE_USERNAME }}/social-sphere-admindashboard:1.0.0
