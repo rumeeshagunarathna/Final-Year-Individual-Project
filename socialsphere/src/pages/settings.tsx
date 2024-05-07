@@ -42,10 +42,16 @@ import { useRouter } from "next/router";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 
-const settings = () => {
+const Settings = () => {
 
 const router = useRouter();
-const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [userData, setUserData] = useState<any>(null);
+  const [user] = useAuthState(auth);
+  const [communityData, setCommunityData] = useRecoilState(communityState);
+  const [communitySnippetsData, setCommunitySnippetsData] = useState<any[]>([]);
+  const [communityMembersData, setCommunityMembersData] = useState<any[]>([]);
+  const [userPosts, setUserPosts] = useState<any[]>([]);
 
 const handleTryNowClick = () => {
   setIsLoading(true);
@@ -54,12 +60,7 @@ const handleTryNowClick = () => {
   }, 2000);
 };
 
-  const [userData, setUserData] = useState<any>(null);
-  const [user] = useAuthState(auth);
-  const [communityData, setCommunityData] = useRecoilState(communityState);
-  const [communitySnippetsData, setCommunitySnippetsData] = useState<any[]>([]);
-  const [communityMembersData, setCommunityMembersData] = useState<any[]>([]);
-  const [userPosts, setUserPosts] = useState<any[]>([]);
+  
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -246,9 +247,9 @@ const handleTryNowClick = () => {
                 <Divider />
                 <Flex align="center" justifyContent="space-between">
                   <FormControl mb={2} mt={2}>
-                    <FormLabel>People You’ve Blocked </FormLabel>
+                    <FormLabel>People You&aposve Blocked </FormLabel>
                     <Text fontSize={"xs"} color={"gray.400"} mt={1} mb={4}>
-                      Blocked people can’t send you chat requests or private
+                      Blocked people can&apost send you chat requests or private
                       messages.
                     </Text>
 
@@ -276,9 +277,9 @@ const handleTryNowClick = () => {
 
                 <Flex align="center" justifyContent="space-between">
                   <FormControl mb={2} mt={2}>
-                    <FormLabel>Communities You've Muted </FormLabel>
+                    <FormLabel>Communities You&aposve Muted </FormLabel>
                     <Text fontSize={"xs"} color={"gray.400"} mt={1} mb={4}>
-                      Posts from muted communities won't show up in your
+                      Posts from muted communities won&apost show up in your
                       recommendations.
                     </Text>
 
@@ -389,8 +390,8 @@ const handleTryNowClick = () => {
                   Chats & Messaging
                 </Heading>
                 <Text fontSize={"xs"} color={"gray.600"} mt={3} mb={6}>
-                  *NOTE-SocialSphere admins can message you even if they’re not
-                  approved.
+                  *NOTE-SocialSphere admins can message you even if they&aposre
+                  not approved.
                 </Text>
                 <FormControl
                   justifyContent="space-between"
@@ -444,4 +445,4 @@ const handleTryNowClick = () => {
   );
 };
 
-export default settings;
+export default Settings;

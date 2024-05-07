@@ -407,8 +407,8 @@ const {
               <ModalBody>
                 <Text fontWeight="bold" mb="1rem">
                   Thanks for looking out for yourself and your fellow members by
-                  reporting things that break the rules. Let us know what's
-                  happening, and we'll look into it.{" "}
+                  reporting things that break the rules. Let us know what&aposs
+                  happening, and we&aposll look into it.{" "}
                 </Text>
 
                 <Box
