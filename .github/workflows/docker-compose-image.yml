@@ -41,17 +41,17 @@ jobs:
           npm run build
         working-directory: ./socialsphere
 
-      - name: Install dependencies - Homepage
+      - name: Install dependencies - homepage
         run: |
           npm install
         env:
           CI: ""
-        working-directory: ./Homepage
+        working-directory: ./homepage
 
-      - name: Build - Homepage
+      - name: Build - homepage
         run: |
           npm run build
-        working-directory: ./Homepage
+        working-directory: ./homepage
 
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKER_IMAGE_PASSWORD }} | docker login -u ${{ secrets.DOCKER_IMAGE_USERNAME }} --password-stdin
