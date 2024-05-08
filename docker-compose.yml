@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  admindashboard:
+    image: rumeeshagunarathna/social-sphere-admindashboard:1.0.0
+    build:
+      context: ./admindashboard
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    container_name: admindashboard-container
+    networks:
+      - my_network
+
+  socialsphere:
+    image: rumeeshagunarathna/social-sphere-socialsphere:1.0.0
+    build:
+      context: ./socialsphere
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3000"
+    container_name: socialsphere-container
+    networks:
+      - my_network
+  
+networks:
+  my_network:
+    driver: bridge
+

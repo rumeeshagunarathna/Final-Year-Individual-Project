@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { Context } from "../pages/context";
+import { Context } from "../components/Context";
 
 import { useRouter } from "next/router";
 

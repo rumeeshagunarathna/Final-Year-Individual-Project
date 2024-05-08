@@ -53,7 +53,7 @@ import { theme } from "../chakrastyle/theme";
 import Layout from "@/components/Layout/Layout";
 import { RecoilRoot } from "recoil";
 
-import { ContextProvider } from "../pages/context";
+import { ContextProvider } from "../components/Context";
 
 import "@/styles/globals.css"
 import "@/styles/auth.css";
