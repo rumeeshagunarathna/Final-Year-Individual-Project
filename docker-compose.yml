@@ -23,14 +23,14 @@ services:
     networks:
       - my_network
 
-  Homepage:
-    image: rumeeshagunarathna/social-sphere-Homepage:1.0.0
+  homepage:
+    image: rumeeshagunarathna/social-sphere-homepage:1.0.0
     build:
-      context: ./Homepage
+      context: ./homepage
       dockerfile: Dockerfile
     ports:
       - "3003:3000"
-    container_name: Homepage-container
+    container_name: homepage-container
     networks:
       - my_network
 
