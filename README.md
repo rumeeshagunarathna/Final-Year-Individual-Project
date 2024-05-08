@@ -1,90 +1,83 @@
-# SocialSphere
-
-Socialsphere is a social news aggregation, content rating, and forum social network.This is a platform for people with similar interests can come together and share news,information,educational content and discuss problems.Main goal of this web application platform is to encourage open and honest discussions within online users.People can discuss current events, entertainment,and amusement, or, this platform can be used for various forms of crowdsourcing, including solving complex problems, conducting research, and seeking advice on their personal and professional matters while been anonymous.
-
+# Green-Grow
+This is  a Agri Connect &amp; Fertilizer Distribution Tracking Platform. It's a web application for farmers to track the fertilizer distribution system and any user who loves farming or cultivation. 
 
 # Install Dependencies and run the project
 
-*For SocialSphere* - ⁠ cd socialsphere ⁠ ⁠ npm i ⁠ ⁠ npm run dev⁠
 
-*For Admin Dashboard* - ⁠ cd admindashboard ⁠ ⁠ npm i ⁠ ⁠ npm run dev ⁠
+**For Frontend** - `cd frontend` `npm i` `npm start`
+
+**For admin Dashboard** - `cd admin` `npm i` `npm start`
+
+**For Backend** - `cd backend` `npm i` `npm start`
+
 
 
 # Technologies Used:
 
-*Frontend/Backend*: Next.js,Typescript,Chakra UI, Tailwind CSS, Recoil,Node.js
+**Frontend**: React.js
 
-*Database*: Firebase/Firestore
+**Backend**: Node.js, Express.js
 
-*Testing*: Jest
+**Database**: MongoDB
 
-*Containerization*: Docker
+**Testing**: Jest, Cypress
+
+**Containerization**: Docker
 
 
+# File structure:
 
-# File Structure:
 
-Final-Year-Individual-Project
-├── .github
-│   └── workflows
-│       ├── docker-compose-image.yml     // Docker Compose file for building Docker images
-│       └── testing.yml                  // Testing workflow configuration file
-├── admindashboard                       // Admin Dashboard Directory
-│   ├── public                           // Public assets and static files
-│   ├── src 
-│   │    ├── app                        // Application logic
-│   │    ├── components                 // Reusable UI components
-│   │    ├── pages                      // React pages
-│   │    └── styles                     // CSS stylesheets
-│   ├── .eslintrc.json                  // ESLint configuration file
-│   ├── .gitignore                      // Specifies intentionally untracked files to ignore
-│   ├── Dockerfile                      // Instructions to build Docker image
-│   ├── index.js                        // Entry point of the application
-│   ├── next.config.mjs                 // Next.js configuration file
-│   ├── package-lock.json               // Lock file for npm dependencies
-│   ├── package.json                    // Project metadata and dependencies
-│   ├── postcss.config.js               // PostCSS configuration file
-│   ├── postcss.config.mjs              // PostCSS configuration for ES Modules
-│   ├── README.md                       // Information about the Admin Dashboard
-│   ├── tailwind.config.js              // Tailwind CSS configuration file
-│   ├── tailwing.config.ts              // Typo: should be "tailwind.config.ts"
-│   └── tsconfig.json                   // TypeScript configuration file
-├── socialsphere 
-│   ├── __mocks__                       // Mock files for testing
-│   ├── __test__                        // Test files
-│   ├── functions                       // Firebase Cloud Functions
-│   │    ├── src                       // Source code for functions
-│   │    │    └── index.ts              // Main entry point for functions
-│   │    ├── .gitignore                 // Specifies intentionally untracked files to ignore
-│   │    ├── package.json               // Project metadata and dependencies
-│   │    └── tsconfig.json              // TypeScript configuration file
-│   ├── public                          // Public assets
-│   │      └── images                   // Image files
-│   ├── src                             // Source code
-│   │    ├── atoms                      // Atomic design components
-│   │    ├── chakrastyle                // Chakra UI theme and styles
-│   │    ├── components                 // Reusable UI components
-│   │    ├── firebase                   // Firebase related files
-│   │    ├── hooks                      // Custom React hooks
-│   │    ├── pages                      // React pages
-│   │    └── styles                     // CSS stylesheets
-│   ├── .env.local                      // Local environment variables
-│   ├── .env.template.local             // Template for local environment variables
-│   ├── .eslintrc.json                  // ESLint configuration file
-│   ├── .firebaserc                     // Firebase configuration file
-│   ├── .gitignore                      // Specifies intentionally untracked files to ignore
-│   ├── Dockerfile                      // Instructions to build Docker image
-│   ├── firebase.json                   // Firebase configuration
-│   ├── jest.config.js                  // Jest configuration file
-│   ├── jest.setup.js                   // Jest setup file
-│   ├── moment.d.ts                     // TypeScript declaration file for Moment.js
-│   ├── next.config.mjs                 // Next.js configuration file
-│   ├── package-lock.json               // Lock file for npm dependencies
-│   ├── package.json                    // Project metadata and dependencies
-│   ├── postcss.config.js               // PostCSS configuration file
-│   ├── README.md                       // Information about the socialsphere project
-│   ├── tailwing.config.js              // Typo: should be "tailwind.config.js"
-│   ├── tsconfig.json                   // TypeScript configuration file
-│   └── yarn.lock                       // Lock file for yarn dependencies
-├── docker-compose.yml                  // Docker Compose file for defining services, networks, and volumes
-└── README.md                           // Readme file providing information about the project
+```
+.
+└── Final-Project-Green-Grow-main
+    |
+    ├──.github\work
+    |     ├──docker-compose-image.yml   // Docker Compose file for building Docker images
+    |     └──testing.yml                // Testing workflow configuration file
+    |
+    ├── frontend                       // Frontend directory for the client-side application
+    |   ├── cypress                    // Directory for end-to-end testing using Cypress
+    |   ├── public                     // Public assets and static files
+    |   |  
+    |   ├── src 
+    |   |    ├──components             // Frontend components (e.g., Navbar, Footer)
+    |   |    ├──Images                 // Images used in the frontend
+    |   |    └──pages                  // Frontend pages
+    |   |
+    |   ├── cypress.congig             // Cypress configuration file
+    |   ├── Dockerfile                 // Docker configuration file for building the client image
+    |   ├── jest.config.js             // Jest configuration file for frontend testing
+    |   ├── package-lock.json
+    |   ├── package.json
+    |   └──.gitignore                  // Gitignore file to specify files and directories to be ignored by Git
+    |
+    ├── admin                          // Admin dashboard directory
+    |   ├── public
+    |   ├── src
+    |   |    ├──components             // Components for the admin dashboard
+    |   |    └──pages                  // Admin dashboard pages
+    |   |    
+    |   ├── Dockerfile                 // Docker configuration file for building the dashboard image
+    |   ├── .gitignore                 // Gitignore file for the dashboard
+    |   ├── package-lock.json
+    |   └── package.json
+    |    
+    |   
+    ├── backend                        // Backend server directory
+    |   ├── models                     // Database models
+    |   ├── routes                     // API routes
+    |   ├── test                       // Test files for server testing
+    |   ├── .dockerignore              // Dockerignore file for excluding files from Docker build
+    |   ├── .gitignore                 // Gitignore file for the server
+    |   ├── app.js                     // Main application file
+    |   ├── Dockerfile                 // Docker configuration file for building the server image
+    |   ├── server.js                  // Server entry point
+    |   ├── package-lock.json
+    |   └── package.json
+    |   
+    |
+    |
+    ├── docker-compose.yml             // Docker Compose file for defining services, networks, and volumes
+    └── README.md                       // Readme file providing information about 
+```
