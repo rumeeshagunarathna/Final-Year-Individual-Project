@@ -17,26 +17,26 @@ jobs:
         with:
           node-version: "20.11.0"  # Adjust node version as needed
     
-      - name: Install dependencies - Admin
+      - name: Install dependencies - admindashboard
         run: |
           npm install
         env:
           CI: ""
         working-directory: ./admindashboard
 
-      - name: Build - Admin
+      - name: Build - admindashboard
         run: |
           npm run build
         working-directory: ./admindashboard
 
-      - name: Install dependencies - Socialsphere
+      - name: Install dependencies - socialsphere
         run: |
           npm install
         env:
           CI: ""
         working-directory: ./socialsphere
 
-      - name: Build - Socialsphere
+      - name: Build - socialsphere
         run: |
           npm run build
         working-directory: ./socialsphere
