@@ -149,7 +149,7 @@ export default function Communityrules() {
             <AccordionPanel pb={4}>
               <Text color="gray.600">
                 Respect the privacy of others. Instigating harassment, for
-                example by revealing someone&aposs personal or confidential
+                example by revealing someone&apos;s personal or confidential
                 information, is not allowed. Never post or threaten to post
                 intimate or sexually-explicit media of someone without their
                 consent.
@@ -191,8 +191,8 @@ export default function Communityrules() {
             </AccordionButton>
             <AccordionPanel pb={4}>
               <Text color="gray.600">
-                You don&apost have to use your real name to use SocialSphere,
-                but don&apost impersonate an individual or an entity in a
+                You don&apos;t have to use your real name to use SocialSphere,
+                but don&apos;t impersonate an individual or an entity in a
                 misleading or deceptive manner.
               </Text>
             </AccordionPanel>
@@ -250,7 +250,7 @@ export default function Communityrules() {
             </AccordionButton>
             <AccordionPanel pb={4}>
               <Text color="gray.600">
-                Don&apost break the site or do anything that interferes with
+                Don&apos;t break the site or do anything that interferes with
                 normal use of SocialSphere.We have a variety of ways of
                 enforcing our rules, including, but not limited to Removal of
                 content.

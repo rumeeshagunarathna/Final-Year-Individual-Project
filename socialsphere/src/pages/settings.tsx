@@ -277,9 +277,9 @@ const handleTryNowClick = () => {
 
                 <Flex align="center" justifyContent="space-between">
                   <FormControl mb={2} mt={2}>
-                    <FormLabel>Communities You&aposve Muted </FormLabel>
+                    <FormLabel>Communities You&apos;ve Muted </FormLabel>
                     <Text fontSize={"xs"} color={"gray.400"} mt={1} mb={4}>
-                      Posts from muted communities won&apost show up in your
+                      Posts from muted communities won&apos;t show up in your
                       recommendations.
                     </Text>
 
@@ -390,7 +390,7 @@ const handleTryNowClick = () => {
                   Chats & Messaging
                 </Heading>
                 <Text fontSize={"xs"} color={"gray.600"} mt={3} mb={6}>
-                  *NOTE-SocialSphere admins can message you even if they&aposre
+                  *NOTE-SocialSphere admins can message you even if they&apos;re
                   not approved.
                 </Text>
                 <FormControl
