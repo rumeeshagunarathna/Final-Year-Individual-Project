@@ -174,7 +174,7 @@ export default function Premium() {
             <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
               Help support SocialSphere and get VIP treatment and exclusive
               access.
-              {/* It&apos;s perfect for freelancers, agencies, and moonlighters. */}
+              
             </Text>
             <Stack direction={{ base: "column", md: "row" }} spacing={4}>
               {/* <Button

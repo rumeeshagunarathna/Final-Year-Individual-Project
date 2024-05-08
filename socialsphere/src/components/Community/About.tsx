@@ -294,7 +294,7 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                   <AccordionPanel pb={4}>
                     <Text color="gray.600">
                       Respect the privacy of others. Instigating harassment, for
-                      example by revealing someone&aposs personal or
+                      example by revealing someone&apos;s personal or
                       confidential information, is not allowed. Never post or
                       threaten to post intimate or sexually-explicit media of
                       someone without their consent.
@@ -336,8 +336,8 @@ const About: React.FC<AboutProps> = ({ communityData }) => {
                   </AccordionButton>
                   <AccordionPanel pb={4}>
                     <Text color="gray.600">
-                      You don&apost have to use your real name to use
-                      SocialSphere, but don&apost impersonate an individual or
+                      You don&apos;t have to use your real name to use
+                      SocialSphere, but don&apos;t impersonate an individual or
                       an entity in a misleading or deceptive manner.
                     </Text>
                   </AccordionPanel>
