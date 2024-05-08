@@ -1,5 +1,7 @@
 ## SocialSphere
+
 Socialsphere is a social news aggregation, content rating, and forum social network.This is a platform for people with similar interests can come together and share news,information,educational content and discuss problems.Main goal of this web application platform is to encourage open and honest discussions within online users.People can discuss current events, entertainment,and amusement, or, this platform can be used for various forms of crowdsourcing, including solving complex problems, conducting research, and seeking advice on their personal and professional matters while been anonymous.
+
 
 ## Install Dependencies and run the project
 
@@ -9,7 +11,9 @@ Socialsphere is a social news aggregation, content rating, and forum social netw
 **For admindashboard** - `cd admindashboard` `npm i` `npm run dev`
 
 
+
 ## Technologies Used:
+
 
 **Frontend/Backend**: Next.js,Typescript,Chakra UI, Tailwind CSS, Recoil,Node.js
 
@@ -18,6 +22,7 @@ Socialsphere is a social news aggregation, content rating, and forum social netw
 **Testing**: Jest
 
 **Containerization**: Docker
+
 
 
 ## File structure:
