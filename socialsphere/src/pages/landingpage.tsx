@@ -875,7 +875,7 @@ export default function landingpage() {
                   bg={"orange.400"}
                   _hover={{ bg: "orange.500" }}
                 >
-                  Get started
+                  Get started.
                 </Button>
               </Link>
             </Stack>
