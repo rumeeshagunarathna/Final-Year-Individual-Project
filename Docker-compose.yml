@@ -12,6 +12,7 @@ services:
     networks:
       - my_network
 
+
   socialsphere:
     image: rumeeshagunarathna/social-sphere-socialsphere:1.0.0
     build:
