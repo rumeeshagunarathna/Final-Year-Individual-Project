@@ -22,18 +22,7 @@ services:
     container_name: socialsphere-container
     networks:
       - my_network
-
-  homepage:
-    image: rumeeshagunarathna/social-sphere-homepage:1.0.0
-    build:
-      context: ./homepage
-      dockerfile: Dockerfile
-    ports:
-      - "3003:3000"
-    container_name: homepage-container
-    networks:
-      - my_network
-
+  
 networks:
   my_network:
     driver: bridge
