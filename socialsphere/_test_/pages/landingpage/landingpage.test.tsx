@@ -15,15 +15,16 @@ describe("Landing page", () => {
     expect(nestedText).toHaveStyle({ color: "orange.400" });
 
     const Text1 = screen.getByText(
-      "Never miss a meeting. Never be late for one too. Keep track of your meetings and receive smart reminders in appropriate times. Read your smart “Daily Agenda” every morning."
+      "SocialSphere is home to communities, endless conversation, and authentic human connection. Whether you're into breaking news, sports, TV fan theories, or a never-ending stream of the internet's cutest animals, there's a community for you."
     );
+    
     expect(Text1).toBeInTheDocument();
 
     
     // Assertion for Link
     const link = screen.getByRole("link", { name: "Get started" });
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "/home");
+    expect(link).toHaveAttribute("href", "/TermsOfServise");
 
     // Assertion for Button
     const button = screen.getByRole("button", { name: "Get started" });

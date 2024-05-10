@@ -304,7 +304,7 @@ export default function Rules() {
                   <AccordionPanel pb={4}>
                     <Text color="gray.600">
                       You don&apos;t have to use your real name to use
-                      SocialSphere, but don&apost impersonate an individual or
+                      SocialSphere, but don&apos;t impersonate an individual or
                       an entity in a misleading or deceptive manner.
                     </Text>
                   </AccordionPanel>

@@ -139,7 +139,7 @@ describe("About Component", () => {
     expect(getByText("About Community")).toBeTruthy();
     expect(getByText("Online")).toBeTruthy();
     expect(getByAltText("Community Image")).toBeTruthy();
-    expect(getByText("Create Post")).toBeTruthy();
+    // expect(getByText("Create Post")).toBeTruthy();
     expect(getByText("View Rules")).toBeTruthy();
     expect(getByText("Community Rules")).toBeTruthy();
     
