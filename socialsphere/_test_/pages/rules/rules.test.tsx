@@ -49,36 +49,33 @@ describe("Rules page", () => {
     const rule3Text = "Rule 3";
     const rule3 = screen.getByText(rule3Text);
     const rule3Content =
-      "Respect the privacy of others. Instigating harassment, for example by revealing someone’s personal or confidential information, is not allowed. Never post or threaten to post intimate or sexually-explicit media of someone without their consent."
-    
+      "Respect the privacy of others. Instigating harassment, for example by revealing someone's personal or confidential information, is not allowed. Never post or threaten to post intimate or sexually-explicit media of someone without their consent.";
+
     const rule4Text = "Rule 4";
     const rule4 = screen.getByText(rule4Text);
     const rule4Content =
-      "Do not share or encourage the sharing of sexual, abusive, or suggestive content involving minors. Any predatory or inappropriate behavior involving a minor is also strictly prohibited."
-    
+      "Do not share or encourage the sharing of sexual, abusive, or suggestive content involving minors. Any predatory or inappropriate behavior involving a minor is also strictly prohibited.";
+
     const rule5Text = "Rule 5";
     const rule5 = screen.getByText(rule5Text);
     const rule5Content =
-      "You don’t have to use your real name to use SocialSphere, but don’t impersonate an individual or an entity in a misleading or deceptive manner."
-    
-   
+      "You don't have to use your real name to use SocialSphere, but don't impersonate an individual or an entity in a misleading or deceptive manner.";
+
     const rule6Text = "Rule 6";
     const rule6 = screen.getByText(rule6Text);
     const rule6Content =
-      "Ensure people have predictable experiences on SocialSphere by properly labeling content and communities, particularly content that is graphic, sexually-explicit, or offensive."
-   
+      "Ensure people have predictable experiences on SocialSphere by properly labeling content and communities, particularly content that is graphic, sexually-explicit, or offensive.";
+
     const rule7Text = "Rule 7";
     const rule7 = screen.getByText(rule7Text);
     const rule7Content =
-      "Keep it legal, and avoid posting illegal content or soliciting or facilitating illegal or prohibited transactions."
-    
-    
+      "Keep it legal, and avoid posting illegal content or soliciting or facilitating illegal or prohibited transactions.";
+
     const rule8Text = "Enforcement";
     const rule8 = screen.getByText(rule8Text);
     const rule8Content =
-      "Don’t break the site or do anything that interferes with normal use of SocialSphere.We have a variety of ways of enforcing our rules, including, but not limited to Removal of content."
-    
-    
+      "Don't break the site or do anything that interferes with normal use of SocialSphere.We have a variety of ways of enforcing our rules, including, but not limited to Removal of content.";
+
     const footerHeaderText1 = "Follow Us";
     const footerHeader1 = screen.getByText(footerHeaderText1);
     const Box1Text = "Facebook";
@@ -143,7 +140,6 @@ describe("Rules page", () => {
 
     const Box20Text = "Releases";
     const Box20 = screen.getByText(Box20Text);
-    
 
     // Assertions
     expect(header).toBeInTheDocument();
@@ -164,7 +160,7 @@ describe("Rules page", () => {
     expect(screen.getByText(rule7Content)).toBeInTheDocument();
     expect(rule8).toBeInTheDocument();
     expect(screen.getByText(rule8Content)).toBeInTheDocument();
-    
+
     expect(footerHeader1).toBeInTheDocument();
     expect(Box1).toBeInTheDocument();
     expect(Box2).toBeInTheDocument();

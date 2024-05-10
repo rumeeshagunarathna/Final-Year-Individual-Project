@@ -864,7 +864,7 @@ export default function landingpage() {
               SocialSphere is home to communities, endless conversation, and
               authentic human connection. Whether you&apos;re into breaking news,
               sports, TV fan theories, or a never-ending stream of the
-              internet&aposs cutest animals, there&apos;s a community for you.
+              internet&apos;s cutest animals, there&apos;s a community for you.
             </Text>
             <Stack spacing={6} direction={"row"}>
               <Link href="/TermsOfServise" passHref>
@@ -875,7 +875,7 @@ export default function landingpage() {
                   bg={"orange.400"}
                   _hover={{ bg: "orange.500" }}
                 >
-                  Get started.
+                  Get started
                 </Button>
               </Link>
             </Stack>
