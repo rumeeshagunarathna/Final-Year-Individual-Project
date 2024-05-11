@@ -86,11 +86,13 @@ export default function Home() {
   if (!showChat) return null;
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
-      <div className="shadow" style={{ maxWidth: "600px", width: "100%" }}>
+    <div
+      className={{ display: "flex", justifyContent: "center", padding: "10px" }}
+    >
+      <div className="shadow" style={{ maxWidth: "1350px", width: "100%", margin:"30px"}}>
         <ChatEngine
           height="calc(110vh - 212px)"
-          projectID="80a86836-91f0-4977-ae6b-dbd3aa905495"
+          projectID="106806a4-b1e4-4e10-96c5-0a7055418578"
           userName={username}
           userSecret={secret}
           renderNewMessageForm={() => <MessageFormSocial />}
