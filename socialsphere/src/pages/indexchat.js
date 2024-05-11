@@ -20,7 +20,7 @@ const Auth = () => {
       .put(
         "https://api.chatengine.io/users/",
         { username, secret },
-        { headers: { "Private-Key": "a96e7108-92f3-43c5-9bee-adf655b49776" } }
+        { headers: { "Private-Key": "b1e0b834-0483-4c90-a96d-cfc47e9d45d9" } }
       )
 
       .then((r) => {
@@ -37,7 +37,7 @@ const Auth = () => {
 
           <div className="input-container">
             <input
-              placeholder="Email"
+              placeholder="Username"
               className="text-input"
               onChange={(e) => setUsername(e.target.value)}
             />

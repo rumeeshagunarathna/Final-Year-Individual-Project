@@ -79,6 +79,7 @@ const goToReportPage = () => {
         <Flex
           mr={1.5}
           ml={1.5}
+          mt={1.9}
           padding={1}
           cursor="pointer"
           borderRadius={4}
@@ -88,17 +89,18 @@ const goToReportPage = () => {
         </Flex>
 
         <Flex
+          color={"black"}
           mr={1.5}
           ml={1.5}
+          mb={1.5}
           padding={1}
           cursor="pointer"
           borderRadius={4}
           _hover={{ bg: "gray.200" }}
         >
-          <Icon as={IoNotificationsOutline} fontSize={20} />
-        </Flex>
+          {/* <Icon as={IoNotificationsOutline} fontSize={20} /> */}
 
-        {/* <Flex
+          {/* <Flex
           display={{ base: "none", md: "flex" }}
           mr={1.5}
           ml={1.5}
@@ -110,16 +112,17 @@ const goToReportPage = () => {
           <Icon as={GrAdd} fontSize={20} />
         </Flex> */}
 
-        <NovuProvider
-          subscriberId={"662bf2d1612e6f34a4f2c576"}
-          applicationIdentifier={"UPqPxbqDIEUx"}
-        >
-          <PopoverNotificationCenter colorScheme={"light"}>
-            {({ unseenCount }) => (
-              <NotificationBell unseenCount={unseenCount} />
-            )}
-          </PopoverNotificationCenter>
-        </NovuProvider>
+          <NovuProvider
+            subscriberId={"662bf2d1612e6f34a4f2c576"}
+            applicationIdentifier={"UPqPxbqDIEUx"}
+          >
+            <PopoverNotificationCenter colorScheme={"light"}>
+              {({ unseenCount }) => (
+                <NotificationBell unseenCount={unseenCount} />
+              )}
+            </PopoverNotificationCenter>
+          </NovuProvider>
+        </Flex>
       </>
     </Flex>
   );
