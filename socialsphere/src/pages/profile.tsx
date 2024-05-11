@@ -682,6 +682,7 @@ import {
   query,
   orderBy,
   where,
+  deleteDoc,
 } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRecoilState } from "recoil";
@@ -770,6 +771,38 @@ export default function Profile() {
   }, [user, userData]); // Include userData in the dependency array
 
 
+  function handleDelete(id: any): void {
+    throw new Error("Function not implemented.");
+  }
+
+// const handleDelete = async (id: string) => {
+//   try {
+//     // Delete the community document
+//     await deleteDoc(doc(firestore, "communities", id));
+
+//     // Remove the deleted community from the user's data
+//     setUserData((prevUserData: any) => {
+//       if (!prevUserData || !prevUserData.communitySnippets) {
+//         // If prevUserData or communitySnippets is null or undefined, return prevUserData
+//         return prevUserData;
+//       }
+
+//       // Filter out the deleted community snippet from the user's data
+//       const updatedCommunitySnippets = prevUserData.communitySnippets.filter(
+//         (snippet: any) => snippet.communityId !== id
+//       );
+
+//       // Return the updated user data with the filtered community snippets
+//       return {
+//         ...prevUserData,
+//         communitySnippets: updatedCommunitySnippets,
+//       };
+//     });
+//   } catch (error) {
+//     console.error("Error removing document:", error);
+//   }
+// };
+
 
   
 
@@ -813,23 +846,40 @@ export default function Profile() {
                 <FormLabel style={{ color: "#3182CE", fontWeight: "bold" }}>
                   Community Details
                 </FormLabel>
+                <div className="overflow-x-auto">
+                <table className="table-auto border-collapse border border-gray-800">
+                  <thead>
+                    <tr className="bg-gray-800 text-black">
+                      <th className="px-4 py-2">Community Name</th>
+                      <th className="px-4 py-2">No.of Members</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {communityMembersData.map((community, index) => (
+                      <tr key={index} className="text-center">
+                        <td className="border px-4 py-2">{community.id}</td>
 
-                {communityMembersData.map((community, index) => (
-                  <td key={index}>
-                    <tr style={{ border: "1px solid #ddd", padding: "8px" }}>
-                      Community Name:
-                      <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                        {community.id}
-                      </td>
-                    </tr>
-                    <tr style={{ border: "1px solid #ddd", padding: "8px" }}>
-                      Number of Members:
-                      <td style={{ border: "1px solid #ddd", padding: "8px" }}>
-                        {community.numberOfMembers}
-                      </td>
-                    </tr>
-                  </td>
-                ))}
+                        <td className="border px-4 py-2">
+                          {community.numberOfMembers}
+                        </td>
+                        <td className="border px-4 py-3">
+                          <button
+                            onClick={() => handleDelete(community.id)}
+                            style={{
+                              //backgroundColor: "#EF4444", // Red background color
+                              borderColor: "#EF4444", // Red border color
+                              color: "red", // White text color
+                            }}
+                            className="py-2 px-4 rounded hover:bg-red-700 text-white font-bold"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  </table>
+                  </div>
               </FormControl>
             )}
 

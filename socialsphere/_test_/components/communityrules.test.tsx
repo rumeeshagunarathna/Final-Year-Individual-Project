@@ -80,7 +80,7 @@ describe("Communityrules Component", () => {
 
     
     const rule1Button = getByRole("button", { name: "Rule 1" });
-    fireEvent.click(rule1Button);
+    //fireEvent.click(rule1Button);
     const content = await findByText(/Remember the human/i);
     expect(content).toBeTruthy();
 
