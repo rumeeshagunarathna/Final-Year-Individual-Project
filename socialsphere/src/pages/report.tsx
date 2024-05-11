@@ -560,7 +560,7 @@ import { authModalState } from "../atoms/authModalAtoms";
 import { Select } from "@chakra-ui/react";
 
 
-export default function SignupCard() {
+export default function ReportCard() {
   const [checkedItems, setCheckedItems] = React.useState([false, false]);
 
   const allChecked = checkedItems.every(Boolean);

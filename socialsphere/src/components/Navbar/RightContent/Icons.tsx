@@ -8,7 +8,7 @@ import {
   IoNotificationsOutline,
   IoVideocamOutline,
 } from "react-icons/io5";
-import router from "next/router";
+import router, { useRouter } from "next/router";
 
 import {
   NovuProvider,
@@ -17,9 +17,9 @@ import {
 } from "@novu/notification-center";
 
 const Icons: React.FC = () => {
-
-const goToReportPage = () => {
-  router.push("/indexchat"); // Navigate to the report page
+const router = useRouter();
+const hadleChatPage = () => {
+  router.push("/indexchat"); // Navigate to the chat page
 };
 
   return (
@@ -62,7 +62,7 @@ const goToReportPage = () => {
         >
           <Icon as={IoVideocamOutline} fontSize={22} />
         </Flex> */}
-        <Flex
+        {/* <Flex
           display={{ base: "none", md: "flex" }}
           mr={1.5}
           ml={1.5}
@@ -72,7 +72,7 @@ const goToReportPage = () => {
           _hover={{ bg: "gray.200" }}
         >
           <Icon as={GrAdd} fontSize={20} />
-        </Flex>
+        </Flex> */}
       </Flex>
 
       <>
@@ -85,7 +85,12 @@ const goToReportPage = () => {
           borderRadius={4}
           _hover={{ bg: "gray.200" }}
         >
-          <Icon as={BsChatDots} fontSize={20} onClick={goToReportPage} />
+          <Icon
+            as={BsChatDots}
+            fontSize={20}
+            onClick={hadleChatPage}
+            data-testid="chat-dots-icon"
+          />
         </Flex>
 
         <Flex
